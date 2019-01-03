@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="OnlineArgs" targetNamespace="http://tempuri.org/OnlineArgs.xsd" xmlns:mstns="http://tempuri.org/OnlineArgs.xsd" xmlns="http://tempuri.org/OnlineArgs.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="OnlineArgs" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="OnlineArgs" msprop:Generator_UserDSName="OnlineArgs">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="OnlineArgs" msprop:Generator_TableClassName="OnlineArgsDataTable" msprop:Generator_TableVarName="tableOnlineArgs" msprop:Generator_TablePropName="_OnlineArgs" msprop:Generator_RowDeletingName="OnlineArgsRowDeleting" msprop:Generator_RowChangingName="OnlineArgsRowChanging" msprop:Generator_RowEvHandlerName="OnlineArgsRowChangeEventHandler" msprop:Generator_RowDeletedName="OnlineArgsRowDeleted" msprop:Generator_UserTableName="OnlineArgs" msprop:Generator_RowChangedName="OnlineArgsRowChanged" msprop:Generator_RowEvArgName="OnlineArgsRowChangeEvent" msprop:Generator_RowClassName="OnlineArgsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TestNum" msprop:Generator_ColumnVarNameInTable="columnTestNum" msprop:Generator_ColumnPropNameInRow="TestNum" msprop:Generator_ColumnPropNameInTable="TestNumColumn" msprop:Generator_UserColumnName="TestNum" type="xs:string" minOccurs="0" />
+              <xs:element name="TestDate" msprop:Generator_ColumnVarNameInTable="columnTestDate" msprop:Generator_ColumnPropNameInRow="TestDate" msprop:Generator_ColumnPropNameInTable="TestDateColumn" msprop:Generator_UserColumnName="TestDate" type="xs:string" minOccurs="0" />
+              <xs:element name="DeviceName" msprop:Generator_ColumnVarNameInTable="columnDeviceName" msprop:Generator_ColumnPropNameInRow="DeviceName" msprop:Generator_ColumnPropNameInTable="DeviceNameColumn" msprop:Generator_UserColumnName="DeviceName" type="xs:string" minOccurs="0" />
+              <xs:element name="TestOperate" msprop:Generator_ColumnVarNameInTable="columnTestOperate" msprop:Generator_ColumnPropNameInRow="TestOperate" msprop:Generator_ColumnPropNameInTable="TestOperateColumn" msprop:Generator_UserColumnName="TestOperate" type="xs:string" minOccurs="0" />
+              <xs:element name="ChannelSum" msprop:Generator_ColumnVarNameInTable="columnChannelSum" msprop:Generator_ColumnPropNameInRow="ChannelSum" msprop:Generator_ColumnPropNameInTable="ChannelSumColumn" msprop:Generator_UserColumnName="ChannelSum" type="xs:string" minOccurs="0" />
+              <xs:element name="TestTimes" msprop:Generator_ColumnVarNameInTable="columnTestTimes" msprop:Generator_ColumnPropNameInRow="TestTimes" msprop:Generator_ColumnPropNameInTable="TestTimesColumn" msprop:Generator_UserColumnName="TestTimes" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

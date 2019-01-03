@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AA1DB428-5DDA-4E2F-AD0A-5A9B16C285B5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TOCTest</RootNamespace>
+    <AssemblyName>TOCTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ADODB, Version=2.8.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\ADODB.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ADOX, Version=2.8.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\ADOX.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="IrisSkin4, Version=2006.3.22.45, Culture=neutral, PublicKeyToken=127be25a6db25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\IrisSkin4.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph, Version=5.0.9.41461, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlertMrg.cs">
+      <DependentUpon>AlertMrg.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AlertMrg.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AlertMrg.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="comm\CommPort.cs" />
+    <Compile Include="comm\IniFile.cs" />
+    <Compile Include="comm\protocol.cs" />
+    <Compile Include="comm\RS232.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="comm\RS232.Designer.cs">
+      <DependentUpon>RS232.cs</DependentUpon>
+    </Compile>
+    <Compile Include="comm\Settings.cs" />
+    <Compile Include="ConArgs.cs">
+      <DependentUpon>ConArgs.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConArgs.Designer.cs">
+      <DependentUpon>ConArgs.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataViewMrgTOC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataViewMrgTOC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="data\ExportAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="data\ExportAlert.Designer.cs">
+      <DependentUpon>ExportAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="data\ExportDataView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="data\ExportDataView.Designer.cs">
+      <DependentUpon>ExportDataView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="db\dbMrg.cs" />
+    <Compile Include="db\dbutils.cs" />
+    <Compile Include="forms\AlertMrg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\AlertMrg.Designer.cs">
+      <DependentUpon>AlertMrg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ConResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\ConResult.Designer.cs">
+      <DependentUpon>ConResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DataViewMrg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\DataViewMrg.Designer.cs">
+      <DependentUpon>DataViewMrg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Info.Designer.cs">
+      <DependentUpon>Info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\NewDevice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\NewDevice.Designer.cs">
+      <DependentUpon>NewDevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\OfflineResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\OfflineResult.Designer.cs">
+      <DependentUpon>OfflineResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\online.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\online.Designer.cs">
+      <DependentUpon>online.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\SystemSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\SystemSet.Designer.cs">
+      <DependentUpon>SystemSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\TestOfflineArgs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\TestOfflineArgs.Designer.cs">
+      <DependentUpon>TestOfflineArgs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\TestOnline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\TestOnline.Designer.cs">
+      <DependentUpon>TestOnline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\TestMrg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\TestMrg.Designer.cs">
+      <DependentUpon>TestMrg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\TestResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\TestResult.Designer.cs">
+      <DependentUpon>TestResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\TestWay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\TestWay.Designer.cs">
+      <DependentUpon>TestWay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\User.Designer.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\UserInfo.cs" />
+    <Compile Include="forms\UserMrg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\UserMrg.Designer.cs">
+      <DependentUpon>UserMrg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ViewConReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\ViewConReport.Designer.cs">
+      <DependentUpon>ViewConReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ViewConResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\ViewConResult.Designer.cs">
+      <DependentUpon>ViewConResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ViewOfflineReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\ViewOfflineReport.Designer.cs">
+      <DependentUpon>ViewOfflineReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ViewOnlineReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\ViewOnlineReport.Designer.cs">
+      <DependentUpon>ViewOnlineReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OfflineArgs.cs">
+      <DependentUpon>OfflineArgs.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OfflineArgs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OfflineArgs.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineArgs.cs">
+      <DependentUpon>OnlineArgs.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineArgs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineArgs.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utils\help.cs" />
+    <Compile Include="utils\loghelp.cs" />
+    <Compile Include="utils\OpXMLFile.cs" />
+    <EmbeddedResource Include="comm\RS232.resx">
+      <DependentUpon>RS232.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="data\ExportAlert.resx">
+      <DependentUpon>ExportAlert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="data\ExportDataView.resx">
+      <DependentUpon>ExportDataView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\AlertMrg.resx">
+      <DependentUpon>AlertMrg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ConResult.resx">
+      <DependentUpon>ConResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\DataViewMrg.resx">
+      <DependentUpon>DataViewMrg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Info.resx">
+      <DependentUpon>Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\NewDevice.resx">
+      <DependentUpon>NewDevice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\OfflineResult.resx">
+      <DependentUpon>OfflineResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\online.resx">
+      <DependentUpon>online.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\SystemSet.resx">
+      <DependentUpon>SystemSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\TestOfflineArgs.resx">
+      <DependentUpon>TestOfflineArgs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\TestOnline.resx">
+      <DependentUpon>TestOnline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\TestMrg.resx">
+      <DependentUpon>TestMrg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\TestResult.resx">
+      <DependentUpon>TestResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\TestWay.resx">
+      <DependentUpon>TestWay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\User.resx">
+      <DependentUpon>User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\UserMrg.resx">
+      <DependentUpon>UserMrg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ViewConReport.resx">
+      <DependentUpon>ViewConReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ViewConResult.resx">
+      <DependentUpon>ViewConResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ViewOfflineReport.resx">
+      <DependentUpon>ViewOfflineReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ViewOnlineReport.resx">
+      <DependentUpon>ViewOnlineReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="rdlc\rdAlertMrg.rdlc" />
+    <EmbeddedResource Include="rdlc\rdCON.rdlc" />
+    <EmbeddedResource Include="rdlc\rdDataViewMrg.rdlc" />
+    <EmbeddedResource Include="rdlc\rdOfflineReport.rdlc" />
+    <EmbeddedResource Include="rdlc\rdOnlineReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="AlertMrg.xsc">
+      <DependentUpon>AlertMrg.xsd</DependentUpon>
+    </None>
+    <None Include="AlertMrg.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AlertMrg.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AlertMrg.xss">
+      <DependentUpon>AlertMrg.xsd</DependentUpon>
+    </None>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="conf\TreeView.opml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ConArgs.xsc">
+      <DependentUpon>ConArgs.xsd</DependentUpon>
+    </None>
+    <None Include="ConArgs.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ConArgs.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ConArgs.xss">
+      <DependentUpon>ConArgs.xsd</DependentUpon>
+    </None>
+    <None Include="DataViewMrgTOC.xsc">
+      <DependentUpon>DataViewMrgTOC.xsd</DependentUpon>
+    </None>
+    <None Include="DataViewMrgTOC.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataViewMrgTOC.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataViewMrgTOC.xss">
+      <DependentUpon>DataViewMrgTOC.xsd</DependentUpon>
+    </None>
+    <None Include="Log4Net.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OfflineArgs.xsc">
+      <DependentUpon>OfflineArgs.xsd</DependentUpon>
+    </None>
+    <None Include="OfflineArgs.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OfflineArgs.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="OfflineArgs.xss">
+      <DependentUpon>OfflineArgs.xsd</DependentUpon>
+    </None>
+    <None Include="OnlineArgs.xsc">
+      <DependentUpon>OnlineArgs.xsd</DependentUpon>
+    </None>
+    <None Include="OnlineArgs.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OnlineArgs.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="OnlineArgs.xss">
+      <DependentUpon>OnlineArgs.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="mdb\" />
+    <Folder Include="src\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dll\ADODB.dll" />
+    <Content Include="dll\ADOX.dll" />
+    <Content Include="dll\IrisSkin4.dll" />
+    <Content Include="dll\log4net.dll" />
+    <Content Include="dll\ZedGraph.dll" />
+    <Content Include="res\bp-Login.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

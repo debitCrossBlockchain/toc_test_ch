@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="OfflineArgs" targetNamespace="http://tempuri.org/OfflineArgs.xsd" xmlns:mstns="http://tempuri.org/OfflineArgs.xsd" xmlns="http://tempuri.org/OfflineArgs.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="OfflineArgs" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="OfflineArgs" msprop:Generator_UserDSName="OfflineArgs">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="OfflineArgs" msprop:Generator_TableClassName="OfflineArgsDataTable" msprop:Generator_TableVarName="tableOfflineArgs" msprop:Generator_TablePropName="_OfflineArgs" msprop:Generator_RowDeletingName="OfflineArgsRowDeleting" msprop:Generator_RowChangingName="OfflineArgsRowChanging" msprop:Generator_RowEvHandlerName="OfflineArgsRowChangeEventHandler" msprop:Generator_RowDeletedName="OfflineArgsRowDeleted" msprop:Generator_UserTableName="OfflineArgs" msprop:Generator_RowChangedName="OfflineArgsRowChanged" msprop:Generator_RowEvArgName="OfflineArgsRowChangeEvent" msprop:Generator_RowClassName="OfflineArgsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="deviceName" msprop:Generator_ColumnVarNameInTable="columndeviceName" msprop:Generator_ColumnPropNameInRow="deviceName" msprop:Generator_ColumnPropNameInTable="deviceNameColumn" msprop:Generator_UserColumnName="deviceName" type="xs:string" minOccurs="0" />
+              <xs:element name="groupName" msprop:Generator_ColumnVarNameInTable="columngroupName" msprop:Generator_ColumnPropNameInRow="groupName" msprop:Generator_ColumnPropNameInTable="groupNameColumn" msprop:Generator_UserColumnName="groupName" type="xs:string" minOccurs="0" />
+              <xs:element name="tester" msprop:Generator_ColumnVarNameInTable="columntester" msprop:Generator_ColumnPropNameInRow="tester" msprop:Generator_ColumnPropNameInTable="testerColumn" msprop:Generator_UserColumnName="tester" type="xs:string" minOccurs="0" />
+              <xs:element name="testTime" msprop:Generator_ColumnVarNameInTable="columntestTime" msprop:Generator_ColumnPropNameInRow="testTime" msprop:Generator_ColumnPropNameInTable="testTimeColumn" msprop:Generator_UserColumnName="testTime" type="xs:string" minOccurs="0" />
+              <xs:element name="sampleQuantity" msprop:Generator_ColumnVarNameInTable="columnsampleQuantity" msprop:Generator_ColumnPropNameInRow="sampleQuantity" msprop:Generator_ColumnPropNameInTable="sampleQuantityColumn" msprop:Generator_UserColumnName="sampleQuantity" type="xs:string" minOccurs="0" />
+              <xs:element name="testTimes" msprop:Generator_ColumnVarNameInTable="columntestTimes" msprop:Generator_ColumnPropNameInRow="testTimes" msprop:Generator_ColumnPropNameInTable="testTimesColumn" msprop:Generator_UserColumnName="testTimes" type="xs:string" minOccurs="0" />
+              <xs:element name="startBottle" msprop:Generator_ColumnVarNameInTable="columnstartBottle" msprop:Generator_ColumnPropNameInRow="startBottle" msprop:Generator_ColumnPropNameInTable="startBottleColumn" msprop:Generator_UserColumnName="startBottle" type="xs:string" minOccurs="0" />
+              <xs:element name="samples" msprop:Generator_ColumnVarNameInTable="columnsamples" msprop:Generator_ColumnPropNameInRow="samples" msprop:Generator_ColumnPropNameInTable="samplesColumn" msprop:Generator_UserColumnName="samples" type="xs:string" minOccurs="0" />
+              <xs:element name="TOC" msprop:Generator_ColumnVarNameInTable="columnTOC" msprop:Generator_ColumnPropNameInRow="TOC" msprop:Generator_ColumnPropNameInTable="TOCColumn" msprop:Generator_UserColumnName="TOC" type="xs:string" minOccurs="0" />
+              <xs:element name="IC" msprop:Generator_ColumnVarNameInTable="columnIC" msprop:Generator_ColumnPropNameInRow="IC" msprop:Generator_ColumnPropNameInTable="ICColumn" msprop:Generator_UserColumnName="IC" type="xs:string" minOccurs="0" />
+              <xs:element name="Conductivity" msprop:Generator_ColumnVarNameInTable="columnConductivity" msprop:Generator_ColumnPropNameInRow="Conductivity" msprop:Generator_ColumnPropNameInTable="ConductivityColumn" msprop:Generator_UserColumnName="Conductivity" type="xs:string" minOccurs="0" />
+              <xs:element name="TOCAve" msprop:Generator_ColumnVarNameInTable="columnTOCAve" msprop:Generator_ColumnPropNameInRow="TOCAve" msprop:Generator_ColumnPropNameInTable="TOCAveColumn" msprop:Generator_UserColumnName="TOCAve" type="xs:string" minOccurs="0" />
+              <xs:element name="ICAve" msprop:Generator_ColumnVarNameInTable="columnICAve" msprop:Generator_ColumnPropNameInRow="ICAve" msprop:Generator_ColumnPropNameInTable="ICAveColumn" msprop:Generator_UserColumnName="ICAve" type="xs:string" minOccurs="0" />
+              <xs:element name="ConAve" msprop:Generator_ColumnVarNameInTable="columnConAve" msprop:Generator_ColumnPropNameInRow="ConAve" msprop:Generator_ColumnPropNameInTable="ConAveColumn" msprop:Generator_UserColumnName="ConAve" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

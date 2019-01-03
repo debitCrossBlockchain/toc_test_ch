@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AlertMrg" targetNamespace="http://tempuri.org/AlertMrg.xsd" xmlns:mstns="http://tempuri.org/AlertMrg.xsd" xmlns="http://tempuri.org/AlertMrg.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AlertMrg" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AlertMrg" msprop:Generator_UserDSName="AlertMrg">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtAlertMrg" msprop:Generator_TableClassName="dtAlertMrgDataTable" msprop:Generator_TableVarName="tabledtAlertMrg" msprop:Generator_TablePropName="dtAlertMrg" msprop:Generator_RowDeletingName="dtAlertMrgRowDeleting" msprop:Generator_RowChangingName="dtAlertMrgRowChanging" msprop:Generator_RowEvHandlerName="dtAlertMrgRowChangeEventHandler" msprop:Generator_RowDeletedName="dtAlertMrgRowDeleted" msprop:Generator_UserTableName="dtAlertMrg" msprop:Generator_RowChangedName="dtAlertMrgRowChanged" msprop:Generator_RowEvArgName="dtAlertMrgRowChangeEvent" msprop:Generator_RowClassName="dtAlertMrgRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:string" minOccurs="0" />
+              <xs:element name="UserNmer" msprop:Generator_ColumnVarNameInTable="columnUserNmer" msprop:Generator_ColumnPropNameInRow="UserNmer" msprop:Generator_ColumnPropNameInTable="UserNmerColumn" msprop:Generator_UserColumnName="UserNmer" type="xs:string" minOccurs="0" />
+              <xs:element name="OperationNumer" msprop:Generator_ColumnVarNameInTable="columnOperationNumer" msprop:Generator_ColumnPropNameInRow="OperationNumer" msprop:Generator_ColumnPropNameInTable="OperationNumerColumn" msprop:Generator_UserColumnName="OperationNumer" type="xs:string" minOccurs="0" />
+              <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName" type="xs:string" minOccurs="0" />
+              <xs:element name="StartTime" msprop:Generator_ColumnVarNameInTable="columnStartTime" msprop:Generator_ColumnPropNameInRow="StartTime" msprop:Generator_ColumnPropNameInTable="StartTimeColumn" msprop:Generator_UserColumnName="StartTime" type="xs:string" minOccurs="0" />
+              <xs:element name="OperationType" msprop:Generator_ColumnVarNameInTable="columnOperationType" msprop:Generator_ColumnPropNameInRow="OperationType" msprop:Generator_ColumnPropNameInTable="OperationTypeColumn" msprop:Generator_UserColumnName="OperationType" type="xs:string" minOccurs="0" />
+              <xs:element name="OperationReason" msprop:Generator_ColumnVarNameInTable="columnOperationReason" msprop:Generator_ColumnPropNameInRow="OperationReason" msprop:Generator_ColumnPropNameInTable="OperationReasonColumn" msprop:Generator_UserColumnName="OperationReason" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

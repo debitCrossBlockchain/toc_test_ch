@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="GB2312"?>
+<opml version="1.1">
+  <head>
+    <title>TOC测试仪</title>
+  </head>
+  <body>
+    <outline title="连接列表">
+      <outline title="设备1号" />
+    </outline>
+  </body>
+</opml>
