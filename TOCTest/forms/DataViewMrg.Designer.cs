@@ -39,12 +39,12 @@
             this.m_btnWrite = new System.Windows.Forms.Button();
             this.m_btnRead = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.m_btnView = new System.Windows.Forms.Button();
             this.m_btnDelS = new System.Windows.Forms.Button();
             this.m_btnExport = new System.Windows.Forms.Button();
             this.m_btnImport = new System.Windows.Forms.Button();
             this.openFileDialogtxt = new System.Windows.Forms.OpenFileDialog();
             this.m_dataGridViewList = new System.Windows.Forms.DataGridView();
-            this.m_btnView = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_dataGridViewList)).BeginInit();
             this.SuspendLayout();
@@ -196,6 +196,19 @@
             this.panel1.Size = new System.Drawing.Size(1127, 99);
             this.panel1.TabIndex = 46;
             // 
+            // m_btnView
+            // 
+            this.m_btnView.Font = new System.Drawing.Font("SimSun", 9F);
+            this.m_btnView.Location = new System.Drawing.Point(454, 3);
+            this.m_btnView.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.m_btnView.Name = "m_btnView";
+            this.m_btnView.Size = new System.Drawing.Size(76, 31);
+            this.m_btnView.TabIndex = 49;
+            this.m_btnView.Text = "打印";
+            this.m_btnView.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.m_btnView.UseVisualStyleBackColor = true;
+            this.m_btnView.Click += new System.EventHandler(this.m_btnView_Click);
+            // 
             // m_btnDelS
             // 
             this.m_btnDelS.Font = new System.Drawing.Font("SimSun", 9F);
@@ -249,19 +262,7 @@
             this.m_dataGridViewList.Size = new System.Drawing.Size(1127, 481);
             this.m_dataGridViewList.TabIndex = 32;
             this.m_dataGridViewList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_dataGridViewList_CellDoubleClick);
-            // 
-            // m_btnView
-            // 
-            this.m_btnView.Font = new System.Drawing.Font("SimSun", 9F);
-            this.m_btnView.Location = new System.Drawing.Point(454, 3);
-            this.m_btnView.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.m_btnView.Name = "m_btnView";
-            this.m_btnView.Size = new System.Drawing.Size(76, 31);
-            this.m_btnView.TabIndex = 49;
-            this.m_btnView.Text = "打印";
-            this.m_btnView.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.m_btnView.UseVisualStyleBackColor = true;
-            this.m_btnView.Click += new System.EventHandler(this.m_btnView_Click);
+            this.m_dataGridViewList.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.m_dataGridViewList_RowsAdded);
             // 
             // DataViewMrg
             // 

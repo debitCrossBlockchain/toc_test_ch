@@ -15,7 +15,7 @@ using TOCTest.utils;
 
 namespace TOCTest.forms
 {
-    public  struct OnlineResultEx
+    public struct OnlineResultEx
     {
         public string m_strInterval;
         public string m_strTOC;
@@ -38,6 +38,7 @@ namespace TOCTest.forms
         public string m_strTester;
         public string m_strTestTime;
         public string m_strTestTimes;
+        public string m_strTestSumTimes;
         public string m_strStartBottle;
         public string m_strSamples;
         public string m_strTOC;
@@ -58,12 +59,13 @@ namespace TOCTest.forms
         public string m_strTester;
         public string m_strTestTime;
         public string m_strTestTimes;
+        public string m_strTestSumTimes;
         public string m_strStartBottle;
         public string m_strSamples;
-        public string m_strRwTOC;  //纯水TOC
-        public string m_strRw;  //纯水TOC
-        public string m_strRs;  //蔗糖TOC
-        public string m_strRss; //苯醌TOC
+        public string m_strRwTOC;  //pure waterTOC
+        public string m_strRw;  //pure waterTOC
+        public string m_strRs;  //sucroseTOC
+        public string m_strRss; //BenzochinoneTOC
         public string m_strResponseRate; //响应率
 
     }
@@ -94,7 +96,7 @@ namespace TOCTest.forms
                 m_btnImport.Visible = false;
             }
             string strTreeView = Main.ms_strDeviceName.ToString();
-            string strQuery = "Select id as id,CodeType as type,Test_StartDt as dtTest,Test_OprationName as Name From {0}";
+            string strQuery = "Select CodeType as type,Test_StartDt as dtTest,Test_OprationName as Name From {0}";
             string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;  Data Source=..\\..\\mdb\\HistoryData.mdb";
             strQuery = string.Format(strQuery, strTreeView);
             OleDbConnection conn = new OleDbConnection(strConn);
@@ -122,31 +124,31 @@ namespace TOCTest.forms
         private void query()
         {
             string strTreeView = Main.ms_strDeviceName.ToString();
-            string strQuery = "Select id as id,CodeType as type,Test_StartDt as dtTest,Test_OprationName as Name From {0}";
+            string strQuery = "Select CodeType as type,Test_StartDt as dtTest,Test_OprationName as Name From {0}";
             string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;  Data Source=..\\..\\mdb\\HistoryData.mdb";
 
-       
-                string strTestMode = "";
-                switch (m_cbTestMode.SelectedIndex)
-                {
-                    case 0:
-                        strTestMode = "2";
-                        break;
-                    case 1:
-                        strTestMode = "1";
-                        break;
-                    case 2:
-                        strTestMode = "3";
-                        break;
-                    case 3:
-                        strTestMode = "4";
-                        break;
-                    default:
-                        break;
 
-                }
-                strQuery = "Select id as id,CodeType as type,Test_StartDt as dtTest,Test_OprationName as Name From {0} " + "where [CodeType] ='" + strTestMode + "'";
-            
+            string strTestMode = "";
+            switch (m_cbTestMode.SelectedIndex)
+            {
+                case 0:
+                    strTestMode = "2";
+                    break;
+                case 1:
+                    strTestMode = "1";
+                    break;
+                case 2:
+                    strTestMode = "3";
+                    break;
+                case 3:
+                    strTestMode = "4";
+                    break;
+                default:
+                    break;
+
+            }
+            strQuery = "Select CodeType as type,Test_StartDt as dtTest,Test_OprationName as Name From {0} " + "where [CodeType] ='" + strTestMode + "'";
+
             DataTable mDataTable = new DataTable("ds2");
 
             strQuery = string.Format(strQuery, strTreeView);
@@ -191,11 +193,11 @@ namespace TOCTest.forms
                 {
                     string mTreeView = Main.ms_strDeviceName.ToString();
                     string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;  Data Source=..\\..\\mdb\\HistoryData.mdb";
-                    string strQuery = "Select * From {0} where [id]={1}";
-                    strQuery = string.Format(strQuery, mTreeView, m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value.ToString());
+                    string strQuery = "Select * From {0} where [Test_StartDt]='{1}'";
+                    strQuery = string.Format(strQuery, mTreeView, m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString());
                     OleDbConnection conn = new OleDbConnection(strConn);
-                   
-                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString() == "2")
+
+                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value.ToString() == "2")
                     {
                         conn.Open();
                         OleDbCommand cmd = new OleDbCommand(strQuery, conn);
@@ -206,17 +208,17 @@ namespace TOCTest.forms
                             ms_objOnlineResultEx.m_strTOC = reader[19].ToString();
                             ms_objOnlineResultEx.m_strIC = reader[20].ToString();
                             ms_objOnlineResultEx.m_strTestNum = reader[5].ToString();
-                            ms_objOnlineResultEx.m_strTestDate=reader[6].ToString();
+                            ms_objOnlineResultEx.m_strTestDate = reader[6].ToString();
                             ms_objOnlineResultEx.m_strDeviceName = Info.getDeviceName();
                             ms_objOnlineResultEx.m_strTestOperate = reader[7].ToString();
-                            ms_objOnlineResultEx.m_strChannelSum=reader[8].ToString();
+                            ms_objOnlineResultEx.m_strChannelSum = reader[8].ToString();
                             ms_objOnlineResultEx.m_strTestTimes = reader[15].ToString();
                         }
                         online objonline = new online();
                         objonline.Show();
                         conn.Close();
                     }
-                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString() == "1")
+                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value.ToString() == "1")
                     {
                         conn.Open();
                         OleDbCommand cmd = new OleDbCommand(strQuery, conn);
@@ -237,7 +239,7 @@ namespace TOCTest.forms
                         conn.Close();
                     }
 
-                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString() == "3")
+                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value.ToString() == "3")
                     {
                         conn.Open();
                         OleDbCommand cmd = new OleDbCommand(strQuery, conn);
@@ -248,11 +250,11 @@ namespace TOCTest.forms
                             string strIC = reader[20].ToString();
                             string strCon = reader[21].ToString();
                             ms_objConResultEx.m_strRwTOC = strTOC.Split(',')[0].ToString();
-                            ms_objConResultEx.m_strRw = strTOC.Split(',')[0].ToString();
-                            ms_objConResultEx.m_strRs = strIC.Split(',')[0].ToString();
-                            ms_objConResultEx.m_strRss = strCon.Split(',')[0].ToString();
-                            ms_objConResultEx.m_strResponseRate = strTOC.Split(',')[1].ToString();
-                        
+                            ms_objConResultEx.m_strRw = strTOC.Split(',')[6].ToString();
+                            ms_objConResultEx.m_strRs = strTOC.Split(',')[13].ToString();
+                            ms_objConResultEx.m_strRss = strTOC.Split(',')[20].ToString();
+                            ms_objConResultEx.m_strResponseRate = strIC.Split(',')[0].ToString();
+
                         }
                         ViewConResult objViewConResult = new ViewConResult();
                         objViewConResult.Show();
@@ -419,6 +421,7 @@ namespace TOCTest.forms
             }
         }
 
+
         void dealOnline(string sLine)
         {
             ConfigHis m_objConfigHis = new ConfigHis();
@@ -466,16 +469,20 @@ namespace TOCTest.forms
             m_objConfigHis.m_strSum_Num = sLine.Split(parsChar)[8].ToString();
             m_objConfigHis.m_strOperator = sLine.Split(parsChar)[9].ToString();
 
-            int nTemp = Convert.ToInt32(sLine.Split(parsChar)[8].ToString());
-            for (int i = 0; i < nTemp * 6; i = i + 3)
+            int nTemp = Convert.ToInt32(sLine.Split(parsChar)[4].ToString());
+            for (int i = 0; i < nTemp; i++)
             {
-                m_objConfigHis.m_strTOCValue = m_objConfigHis.m_strTOCValue + sLine.Split(parsChar)[(10 + i)].ToString() + ",";
-                m_objConfigHis.m_strTCValue = m_objConfigHis.m_strTCValue + sLine.Split(parsChar)[10 + i + 1].ToString() + ",";
-                m_objConfigHis.m_strConduct = m_objConfigHis.m_strConduct + sLine.Split(parsChar)[10 + i + 2].ToString() + ",";
+
+                m_objConfigHis.m_strTOCValue = m_objConfigHis.m_strTOCValue + sLine.Split(parsChar)[(10 + i * 21 + 0)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 3)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 6)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 9)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 12)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 15)].ToString() + ",";
+                m_objConfigHis.m_strTCValue = m_objConfigHis.m_strTCValue + sLine.Split(parsChar)[(10 + i * 21 + 1)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 4)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 7)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 10)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 13)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 16)].ToString() + ",";
+                m_objConfigHis.m_strConduct = m_objConfigHis.m_strConduct + sLine.Split(parsChar)[(10 + i * 21 + 2)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 5)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 8)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 11)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 14)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 17)].ToString() + ",";
+                m_objConfigHis.m_strAveTOCValue = m_objConfigHis.m_strAveTOCValue + sLine.Split(parsChar)[28 + i * 21 + 0].ToString() + ",";
+                m_objConfigHis.m_strAveTCValue = m_objConfigHis.m_strAveTCValue + sLine.Split(parsChar)[28 + i * 21 + 1].ToString() + ",";
+                m_objConfigHis.m_strAveConduct = m_objConfigHis.m_strAveConduct + sLine.Split(parsChar)[28 + i * 21 + 2].ToString() + ",";
             }
-            m_objConfigHis.m_strAveTOCValue = sLine.Split(parsChar)[10 + nTemp * 6].ToString();
-            m_objConfigHis.m_strAveTCValue = sLine.Split(parsChar)[11 + nTemp * 6].ToString();
-            m_objConfigHis.m_strAveConduct = sLine.Split(parsChar)[12 + nTemp * 6].ToString(); ;
+
+
+
 
             string strConnection = "Provider=Microsoft.Jet.OLEDB.4.0;  Data Source=..\\..\\mdb\\HistoryData.mdb";
             string strDBInfo = String.Format("insert into {0} ([CodeType],[CodeName],[Test_StartDt],[Test_EndDt],[Test_OprationName],[Channlesum],[OnlinestFlag],[AveTOCValue],[AveTCValue],[AveConduct],[LsampleNum],[Htest_testimes],[Start_Bott],[SampleWay],[TOCValue],[TCValue],[Conduct],[Htest_sum]) values ('{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}')",
@@ -487,7 +494,7 @@ namespace TOCTest.forms
                 m_objConfigHis.m_strAveConduct, m_objConfigHis.m_strLsampleNum,
                 m_objConfigHis.m_strNum, m_objConfigHis.m_strStartBott,
                 m_objConfigHis.m_strSampleWay, m_objConfigHis.m_strTOCValue,
-                m_objConfigHis.m_strTCValue, m_objConfigHis.m_strConduct,m_objConfigHis.m_strSum_Num);
+                m_objConfigHis.m_strTCValue, m_objConfigHis.m_strConduct, m_objConfigHis.m_strSum_Num);
             TOCTest.db.dbMrg.AlterDB(strConnection, strDBInfo);
             Console.WriteLine(m_objConfigHis);
         }
@@ -506,23 +513,17 @@ namespace TOCTest.forms
             m_objConfigHis.m_strSum_Num = sLine.Split(parsChar)[8].ToString();
             m_objConfigHis.m_strOperator = sLine.Split(parsChar)[9].ToString();
 
-            int nTemp = Convert.ToInt32(sLine.Split(parsChar)[8].ToString());
-            for (int i = 0; i < nTemp * 7; i++)
+            int nTemp = Convert.ToInt32(sLine.Split(parsChar)[4].ToString());
+            for (int i = 0; i < nTemp; i++)
             {
-                m_objConfigHis.m_strTOCValue = m_objConfigHis.m_strTOCValue + sLine.Split(parsChar)[(10 + i)].ToString() + ",";
+                m_objConfigHis.m_strTOCValue = m_objConfigHis.m_strTOCValue + sLine.Split(parsChar)[(10 + i * 21 + 0)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 3)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 6)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 9)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 12)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 15)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 18)].ToString() + ",";
+                m_objConfigHis.m_strTCValue = m_objConfigHis.m_strTCValue + sLine.Split(parsChar)[(10 + i * 21 + 1)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 4)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 7)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 10)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 13)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 16)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 19)].ToString() + ",";
+                m_objConfigHis.m_strConduct = m_objConfigHis.m_strConduct + sLine.Split(parsChar)[(10 + i * 21 + 2)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 5)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 8)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 11)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 14)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 17)].ToString() + "," + sLine.Split(parsChar)[(10 + i * 21 + 20)].ToString() + ",";
             }
-            for (int i = 0; i < nTemp * 7; i++)
-            {
-                m_objConfigHis.m_strTCValue = m_objConfigHis.m_strTCValue + sLine.Split(parsChar)[10 + i + 21].ToString() + ",";
-            }
-            for (int i = 0; i < nTemp * 7; i++)
-            {
-                m_objConfigHis.m_strConduct = m_objConfigHis.m_strConduct + sLine.Split(parsChar)[10 + i + 21*2].ToString() + ",";
-            }
-            m_objConfigHis.m_strAveTOCValue = sLine.Split(parsChar)[9 + 18].ToString();
-            m_objConfigHis.m_strAveTCValue = sLine.Split(parsChar)[9 +21+ 18].ToString();
-            m_objConfigHis.m_strAveConduct = sLine.Split(parsChar)[9 +21*2+ 18].ToString();
-            m_objConfigHis.m_strBott_Amount = sLine.Split(parsChar)[10].ToString();
+            m_objConfigHis.m_strAveTOCValue = sLine.Split(parsChar)[10 + 18].ToString();
+            m_objConfigHis.m_strAveTCValue = sLine.Split(parsChar)[10 + 7 + 18].ToString();
+            m_objConfigHis.m_strAveConduct = sLine.Split(parsChar)[10 + 7 * 2 + 18].ToString();
+            m_objConfigHis.m_strBott_Amount = sLine.Split(parsChar)[11].ToString();
 
             string strConnection = "Provider=Microsoft.Jet.OLEDB.4.0;  Data Source=..\\..\\mdb\\HistoryData.mdb";
             string strDBInfo = String.Format("insert into {0} ([CodeType],[CodeName],[Test_StartDt],[Test_EndDt],[Test_OprationName],[Channlesum],[OnlinestFlag],[AveTOCValue],[AveTCValue],[AveConduct],[Bott_Amount],[LsampleNum],[Htest_testimes],[Start_Bott],[SampleWay],[TOCValue],[TCValue],[Conduct],[Htest_sum]) values ('{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}')",
@@ -531,11 +532,11 @@ namespace TOCTest.forms
                 m_objConfigHis.m_strEndTime, m_objConfigHis.m_strOperator,
                 m_objConfigHis.m_strChannlesum, m_objConfigHis.m_stronlinestflag,
                 m_objConfigHis.m_strAveTOCValue, m_objConfigHis.m_strAveTCValue,
-                m_objConfigHis.m_strAveConduct,m_objConfigHis.m_strBott_Amount,
+                m_objConfigHis.m_strAveConduct, m_objConfigHis.m_strBott_Amount,
                 m_objConfigHis.m_strLsampleNum,
                 m_objConfigHis.m_strNum, m_objConfigHis.m_strStartBott,
                 m_objConfigHis.m_strSampleWay, m_objConfigHis.m_strTOCValue,
-                m_objConfigHis.m_strTCValue, m_objConfigHis.m_strConduct,m_objConfigHis.m_strSum_Num);
+                m_objConfigHis.m_strTCValue, m_objConfigHis.m_strConduct, m_objConfigHis.m_strSum_Num);
             TOCTest.db.dbMrg.AlterDB(strConnection, strDBInfo);
             Console.WriteLine(m_objConfigHis);
         }
@@ -546,7 +547,7 @@ namespace TOCTest.forms
             try
             {
                 UserInfo objUserInfo = UserInfo.Instance;
-                db.dbMrg.AddAlertInfo("01", "01", objUserInfo.getUserName(), DateTime.Now.ToString(), "01", "导出数据!");
+                db.dbMrg.AddAlertInfo("01", "01", objUserInfo.getUserName(), DateTime.Now.ToString(), "01", "export data!");
                 TOCTest.data.ExportDataView objExport = new TOCTest.data.ExportDataView();
                 objExport.ShowDialog();
             }
@@ -649,13 +650,14 @@ namespace TOCTest.forms
             {
                 if (m_dataGridViewList.SelectedRows.Count > 0)
                 {
+                    
                     string mTreeView = Main.ms_strDeviceName.ToString();
                     string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;  Data Source=..\\..\\mdb\\HistoryData.mdb";
-                    string strQuery = "Select * From {0} where [id]={1}";
-                    strQuery = string.Format(strQuery, mTreeView, m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value.ToString());
+                    string strQuery = "Select * From {0} where [Test_StartDt]='{1}'";
+                    strQuery = string.Format(strQuery, mTreeView, m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString());
                     OleDbConnection conn = new OleDbConnection(strConn);
 
-                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString() == "2")
+                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value.ToString() == "2")
                     {
                         conn.Open();
                         OleDbCommand cmd = new OleDbCommand(strQuery, conn);
@@ -665,8 +667,8 @@ namespace TOCTest.forms
                             ms_objOnlineResultEx.m_strInterval = reader[6].ToString();
                             ms_objOnlineResultEx.m_strTOC = reader[19].ToString();
                             ms_objOnlineResultEx.m_strIC = reader[20].ToString();
-                            ms_objOnlineResultEx.m_strTestNum = reader[6].ToString();
-                            ms_objOnlineResultEx.m_strTestDate = reader[7].ToString();
+                            ms_objOnlineResultEx.m_strTestNum = reader[5].ToString();
+                            ms_objOnlineResultEx.m_strTestDate = reader[6].ToString();
                             ms_objOnlineResultEx.m_strDeviceName = Info.getDeviceName();
                             ms_objOnlineResultEx.m_strTestOperate = reader[8].ToString();
                             ms_objOnlineResultEx.m_strChannelSum = reader[9].ToString();
@@ -676,7 +678,7 @@ namespace TOCTest.forms
                         objonline.Show();
                         conn.Close();
                     }
-                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString() == "1")
+                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value.ToString() == "1")
                     {
                         conn.Open();
                         OleDbCommand cmd = new OleDbCommand(strQuery, conn);
@@ -686,26 +688,34 @@ namespace TOCTest.forms
                             ms_objOfflineResultEx.m_strInterval = reader[6].ToString();
                             ms_objOfflineResultEx.m_strCodeName = reader[5].ToString();
                             ms_objOfflineResultEx.m_strCodeType = reader[4].ToString();
-                            ms_objOfflineResultEx.m_strSampleWay = reader[17].ToString();
+                            if (reader[17].ToString() == "1")
+                            {
+                                ms_objOfflineResultEx.m_strSampleWay = "自动";
+                            }
+                            else
+                            {
+                                ms_objOfflineResultEx.m_strSampleWay = "手动";
+                            }
                             ms_objOfflineResultEx.m_strDeviceName = Info.getDeviceName();
                             ms_objOfflineResultEx.m_strSamples = reader[14].ToString();
                             ms_objOfflineResultEx.m_strTester = reader[8].ToString();
-                            ms_objOfflineResultEx.m_strTestTimes= reader[15].ToString();
+                            ms_objOfflineResultEx.m_strTestTimes = reader[15].ToString();
+                            ms_objOfflineResultEx.m_strTestSumTimes = reader[18].ToString();
                             ms_objOfflineResultEx.m_strStartBottle = reader[16].ToString();
                             ms_objOfflineResultEx.m_strAveTOC = reader[11].ToString();
                             ms_objOfflineResultEx.m_strAveIC = reader[12].ToString();
                             ms_objOfflineResultEx.m_strAveCon = reader[13].ToString();
                             ms_objOfflineResultEx.m_strTOC = reader[19].ToString();
                             ms_objOfflineResultEx.m_strIC = reader[20].ToString();
-                            ms_objOfflineResultEx.m_strCON = reader[21].ToString();
+                            ms_objOfflineResultEx.m_strCON = reader[7].ToString();
                         }
                         ViewOfflineReport objonline = new ViewOfflineReport();
                         objonline.Show();
-                     
+
                         conn.Close();
                     }
 
-                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString() == "3")
+                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value.ToString() == "3")
                     {
                         conn.Open();
                         OleDbCommand cmd = new OleDbCommand(strQuery, conn);
@@ -715,32 +725,50 @@ namespace TOCTest.forms
                             ms_objConResultEx.m_strInterval = reader[6].ToString();
                             ms_objConResultEx.m_strCodeName = reader[5].ToString();
                             ms_objConResultEx.m_strCodeType = reader[4].ToString();
-                            ms_objConResultEx.m_strSampleWay = reader[17].ToString();
+                            if (reader[17].ToString() == "1")
+                            {
+                                ms_objConResultEx.m_strSampleWay = "自动";
+                            }
+                            else
+                            {
+                                ms_objConResultEx.m_strSampleWay = "手动";
+                            }
                             ms_objConResultEx.m_strDeviceName = Info.getDeviceName();
                             ms_objConResultEx.m_strSamples = reader[14].ToString();
                             ms_objConResultEx.m_strTester = reader[8].ToString();
                             ms_objConResultEx.m_strTestTimes = reader[15].ToString();
+                            ms_objConResultEx.m_strTestSumTimes = reader[18].ToString();
+
                             ms_objConResultEx.m_strStartBottle = reader[16].ToString();
                             string strTOC = reader[19].ToString();
                             string strIC = reader[20].ToString();
-                            string strCon = reader[21].ToString();
+                            string strCon = reader[7].ToString();
                             ms_objConResultEx.m_strRwTOC = strTOC.Split(',')[0].ToString();
-                            ms_objConResultEx.m_strRw = strTOC.Split(',')[0].ToString();
-                            ms_objConResultEx.m_strRs = strIC.Split(',')[0].ToString();
-                            ms_objConResultEx.m_strRss = strCon.Split(',')[0].ToString();
-                            ms_objConResultEx.m_strResponseRate = strTOC.Split(',')[1].ToString();
+                            ms_objConResultEx.m_strRw = strTOC.Split(',')[6].ToString();
+                            ms_objConResultEx.m_strRs = strTOC.Split(',')[13].ToString();
+                            ms_objConResultEx.m_strRss = strTOC.Split(',')[20].ToString();
+                            ms_objConResultEx.m_strResponseRate = strIC.Split(',')[0].ToString();
                         }
                         ViewConReport objViewConReport = new ViewConReport();
                         objViewConReport.Show();
-                     
+
                         conn.Close();
                     }
+                
                 }
             }
             catch (Exception ex)
             {
                 utils.loghelp.log.Error(ex.Message, ex);
                 MessageBox.Show("异常：" + ex.ToString(), "提示");
+            }
+        }
+
+        private void m_dataGridViewList_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            for (int i = 0; i < m_dataGridViewList.Rows.Count; i++)
+            {
+                m_dataGridViewList.Rows[i].HeaderCell.Value = (i).ToString();
             }
         }
     }
