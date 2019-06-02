@@ -662,5 +662,10 @@ namespace TOCTest
             AlertMrg.ms_bFlag = false;
             alertMrg();
         }
+
+        private void ToolStripMenuItemAbout_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

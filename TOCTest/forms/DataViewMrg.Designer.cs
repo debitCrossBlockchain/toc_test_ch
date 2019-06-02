@@ -212,7 +212,7 @@
             // m_btnDelS
             // 
             this.m_btnDelS.Font = new System.Drawing.Font("SimSun", 9F);
-            this.m_btnDelS.Location = new System.Drawing.Point(542, 2);
+            this.m_btnDelS.Location = new System.Drawing.Point(718, 44);
             this.m_btnDelS.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.m_btnDelS.Name = "m_btnDelS";
             this.m_btnDelS.Size = new System.Drawing.Size(76, 31);
@@ -224,7 +224,7 @@
             // m_btnExport
             // 
             this.m_btnExport.Font = new System.Drawing.Font("SimSun", 9F);
-            this.m_btnExport.Location = new System.Drawing.Point(718, 45);
+            this.m_btnExport.Location = new System.Drawing.Point(545, 2);
             this.m_btnExport.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.m_btnExport.Name = "m_btnExport";
             this.m_btnExport.Size = new System.Drawing.Size(76, 31);

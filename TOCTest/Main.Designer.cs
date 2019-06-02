@@ -37,7 +37,6 @@
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripSystem = new System.Windows.Forms.MenuStrip();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.RssTreeView = new System.Windows.Forms.TreeView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
@@ -91,7 +90,7 @@
             // ToolStripMenuItemQuit
             // 
             this.ToolStripMenuItemQuit.Name = "ToolStripMenuItemQuit";
-            this.ToolStripMenuItemQuit.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItemQuit.Size = new System.Drawing.Size(106, 22);
             this.ToolStripMenuItemQuit.Text = "退出";
             this.ToolStripMenuItemQuit.Click += new System.EventHandler(this.ToolStripMenuItemQuit_Click);
             // 
@@ -139,23 +138,17 @@
             // 帮助ToolStripMenuItem
             // 
             this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItemHelp,
             this.ToolStripMenuItemAbout});
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
             this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(50, 23);
             this.帮助ToolStripMenuItem.Text = "帮助";
             // 
-            // ToolStripMenuItemHelp
-            // 
-            this.ToolStripMenuItemHelp.Name = "ToolStripMenuItemHelp";
-            this.ToolStripMenuItemHelp.Size = new System.Drawing.Size(136, 22);
-            this.ToolStripMenuItemHelp.Text = "帮助文档";
-            // 
             // ToolStripMenuItemAbout
             // 
             this.ToolStripMenuItemAbout.Name = "ToolStripMenuItemAbout";
-            this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(136, 22);
+            this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(152, 22);
             this.ToolStripMenuItemAbout.Text = "关于";
+            this.ToolStripMenuItemAbout.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
             // 
             // RssTreeView
             // 
@@ -480,7 +473,6 @@
         private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStripSystem;
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemHelp;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAbout;
         private System.Windows.Forms.TreeView RssTreeView;
         private System.Windows.Forms.ImageList imageList;

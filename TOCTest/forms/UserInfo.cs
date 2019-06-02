@@ -7,7 +7,7 @@ namespace TOCTest.forms
 {
     public class UserInfo
     {
-         //begin Singleton pattern
+        //begin Singleton pattern
         static readonly UserInfo instance = new UserInfo();
         public static string m_strUserName;
         public static string m_strUserLevel;
@@ -41,7 +41,7 @@ namespace TOCTest.forms
         }
 
         /// <summary>
-        /// 设置用户信息
+        /// settinguser信息
         /// </summary>
         /// <param name="strName"></param>
         /// <param name="strLevel"></param>
