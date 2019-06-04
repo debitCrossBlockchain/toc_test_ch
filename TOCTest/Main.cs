@@ -80,7 +80,7 @@ namespace TOCTest
             catch (Exception ex)
             {
                 utils.loghelp.log.Error(ex.Message, ex);
-                MessageBox.Show("异常：" + ex.ToString(), "提示");
+                //MessageBox.Show("异常：" + ex.ToString(), "提示");
             }
         }
 

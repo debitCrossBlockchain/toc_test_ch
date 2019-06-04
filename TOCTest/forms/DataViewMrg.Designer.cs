@@ -82,6 +82,7 @@
             this.label7.Size = new System.Drawing.Size(82, 15);
             this.label7.TabIndex = 25;
             this.label7.Text = "创建日期：";
+            this.label7.Visible = false;
             // 
             // m_cbTestMode
             // 
@@ -123,6 +124,7 @@
             this.dateTimeEnd.Size = new System.Drawing.Size(157, 25);
             this.dateTimeEnd.TabIndex = 40;
             this.dateTimeEnd.Value = new System.DateTime(2016, 11, 19, 0, 0, 0, 0);
+            this.dateTimeEnd.Visible = false;
             // 
             // dateTimePre
             // 
@@ -136,6 +138,7 @@
             this.dateTimePre.Size = new System.Drawing.Size(156, 25);
             this.dateTimePre.TabIndex = 39;
             this.dateTimePre.Value = new System.DateTime(2016, 11, 19, 0, 0, 0, 0);
+            this.dateTimePre.Visible = false;
             // 
             // label2
             // 
@@ -147,6 +150,7 @@
             this.label2.Size = new System.Drawing.Size(31, 15);
             this.label2.TabIndex = 41;
             this.label2.Text = "---";
+            this.label2.Visible = false;
             // 
             // m_btnWrite
             // 
@@ -158,6 +162,7 @@
             this.m_btnWrite.TabIndex = 45;
             this.m_btnWrite.Text = "写入";
             this.m_btnWrite.UseVisualStyleBackColor = true;
+            this.m_btnWrite.Visible = false;
             this.m_btnWrite.Click += new System.EventHandler(this.m_btnWrite_Click);
             // 
             // m_btnRead
@@ -170,6 +175,7 @@
             this.m_btnRead.TabIndex = 44;
             this.m_btnRead.Text = "读取";
             this.m_btnRead.UseVisualStyleBackColor = true;
+            this.m_btnRead.Visible = false;
             this.m_btnRead.Click += new System.EventHandler(this.m_btnRead_Click);
             // 
             // panel1
@@ -219,6 +225,7 @@
             this.m_btnDelS.TabIndex = 48;
             this.m_btnDelS.Text = "删除";
             this.m_btnDelS.UseVisualStyleBackColor = true;
+            this.m_btnDelS.Visible = false;
             this.m_btnDelS.Click += new System.EventHandler(this.m_btnDelS_Click);
             // 
             // m_btnExport
