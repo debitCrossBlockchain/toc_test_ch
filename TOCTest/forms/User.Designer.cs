@@ -41,105 +41,96 @@
             // 
             // textBoxUserSernum
             // 
-            this.textBoxUserSernum.Font = new System.Drawing.Font("SimSun", 10.5F);
+            this.textBoxUserSernum.Font = new System.Drawing.Font("宋体", 10.5F);
             this.textBoxUserSernum.HideSelection = false;
             this.textBoxUserSernum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBoxUserSernum.Location = new System.Drawing.Point(133, 194);
-            this.textBoxUserSernum.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxUserSernum.Location = new System.Drawing.Point(100, 155);
             this.textBoxUserSernum.Name = "textBoxUserSernum";
-            this.textBoxUserSernum.Size = new System.Drawing.Size(186, 27);
+            this.textBoxUserSernum.Size = new System.Drawing.Size(140, 23);
             this.textBoxUserSernum.TabIndex = 81;
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("SimSun", 10.5F);
-            this.label4.Location = new System.Drawing.Point(14, 197);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Font = new System.Drawing.Font("宋体", 10.5F);
+            this.label4.Location = new System.Drawing.Point(10, 158);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 23);
+            this.label4.Size = new System.Drawing.Size(83, 18);
             this.label4.TabIndex = 80;
             this.label4.Tag = "";
             this.label4.Text = "用户序号：";
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("SimSun", 10.5F);
-            this.label2.Location = new System.Drawing.Point(37, 41);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Font = new System.Drawing.Font("宋体", 10.5F);
+            this.label2.Location = new System.Drawing.Point(28, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 23);
+            this.label2.Size = new System.Drawing.Size(66, 18);
             this.label2.TabIndex = 76;
             this.label2.Tag = "";
             this.label2.Text = "用户名：";
             // 
             // comboBoxLevel
             // 
-            this.comboBoxLevel.Font = new System.Drawing.Font("SimSun", 10.5F);
+            this.comboBoxLevel.Font = new System.Drawing.Font("宋体", 10.5F);
             this.comboBoxLevel.FormattingEnabled = true;
             this.comboBoxLevel.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
-            "4",
-            "5",
-            "6"});
-            this.comboBoxLevel.Location = new System.Drawing.Point(133, 143);
-            this.comboBoxLevel.Margin = new System.Windows.Forms.Padding(4);
+            "4"});
+            this.comboBoxLevel.Location = new System.Drawing.Point(100, 114);
             this.comboBoxLevel.Name = "comboBoxLevel";
-            this.comboBoxLevel.Size = new System.Drawing.Size(186, 25);
+            this.comboBoxLevel.Size = new System.Drawing.Size(140, 22);
             this.comboBoxLevel.TabIndex = 79;
             this.comboBoxLevel.Text = "4";
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("SimSun", 10.5F);
-            this.label1.Location = new System.Drawing.Point(53, 93);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Font = new System.Drawing.Font("宋体", 10.5F);
+            this.label1.Location = new System.Drawing.Point(40, 74);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 23);
+            this.label1.Size = new System.Drawing.Size(54, 18);
             this.label1.TabIndex = 74;
             this.label1.Tag = "";
             this.label1.Text = "密码：";
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("SimSun", 10.5F);
-            this.label3.Location = new System.Drawing.Point(53, 145);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Font = new System.Drawing.Font("宋体", 10.5F);
+            this.label3.Location = new System.Drawing.Point(40, 116);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 23);
+            this.label3.Size = new System.Drawing.Size(54, 18);
             this.label3.TabIndex = 78;
             this.label3.Tag = "";
             this.label3.Text = "级别：";
             // 
             // tBPwd
             // 
-            this.tBPwd.Font = new System.Drawing.Font("SimSun", 10.5F);
+            this.tBPwd.Font = new System.Drawing.Font("宋体", 10.5F);
             this.tBPwd.HideSelection = false;
             this.tBPwd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tBPwd.Location = new System.Drawing.Point(133, 90);
-            this.tBPwd.Margin = new System.Windows.Forms.Padding(4);
+            this.tBPwd.Location = new System.Drawing.Point(100, 72);
             this.tBPwd.Name = "tBPwd";
             this.tBPwd.PasswordChar = '*';
-            this.tBPwd.Size = new System.Drawing.Size(186, 27);
+            this.tBPwd.Size = new System.Drawing.Size(140, 23);
             this.tBPwd.TabIndex = 75;
             // 
             // tBUserName
             // 
-            this.tBUserName.Font = new System.Drawing.Font("SimSun", 10.5F);
+            this.tBUserName.Font = new System.Drawing.Font("宋体", 10.5F);
             this.tBUserName.HideSelection = false;
             this.tBUserName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tBUserName.Location = new System.Drawing.Point(133, 37);
-            this.tBUserName.Margin = new System.Windows.Forms.Padding(4);
+            this.tBUserName.Location = new System.Drawing.Point(100, 30);
             this.tBUserName.Name = "tBUserName";
-            this.tBUserName.Size = new System.Drawing.Size(186, 27);
+            this.tBUserName.Size = new System.Drawing.Size(140, 23);
             this.tBUserName.TabIndex = 77;
             // 
             // m_btnConfirm
             // 
-            this.m_btnConfirm.Location = new System.Drawing.Point(40, 242);
+            this.m_btnConfirm.Location = new System.Drawing.Point(30, 194);
+            this.m_btnConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.m_btnConfirm.Name = "m_btnConfirm";
-            this.m_btnConfirm.Size = new System.Drawing.Size(85, 25);
+            this.m_btnConfirm.Size = new System.Drawing.Size(64, 20);
             this.m_btnConfirm.TabIndex = 82;
             this.m_btnConfirm.Text = "确定";
             this.m_btnConfirm.UseVisualStyleBackColor = true;
@@ -147,9 +138,9 @@
             // 
             // User
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 298);
+            this.ClientSize = new System.Drawing.Size(278, 238);
             this.Controls.Add(this.m_btnConfirm);
             this.Controls.Add(this.textBoxUserSernum);
             this.Controls.Add(this.label4);
@@ -159,6 +150,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tBPwd);
             this.Controls.Add(this.tBUserName);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "User";
             this.Text = "User";
             this.Load += new System.EventHandler(this.User_Load);

@@ -665,7 +665,8 @@ namespace TOCTest
 
         private void ToolStripMenuItemAbout_Click(object sender, EventArgs e)
         {
-
+            forms.about obj = new forms.about();
+            obj.Show();
         }
     }
 }

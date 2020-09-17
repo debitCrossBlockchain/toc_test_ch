@@ -34,14 +34,21 @@ namespace TOCTest.forms
                 }
 
                 m_tbSampVmax.Text = data.m_strSampVmax;
-                m_tbSampTimer.Text = data.m_strSampTimer;
+                //m_tbSampTimer.Text = data.m_strSampTimer;
                 m_tbChannlSum.Text = data.m_strChannlSum;
                 m_tbLTests.Text = data.m_strLTests;
                 m_tbLForsake.Text = data.m_strLForsake;
                 m_tbLCleartime.Text = data.m_strLCleartime;
                 m_tbTOCAlarmup.Text = data.m_strTOCAlarmup;
                 m_tbUSAlarmup.Text = data.m_strUSAlarmup;
-                m_tbStorMode.Text = data.m_strStorMode;
+                if (data.m_strStorMode == "1")
+                {
+                    m_cbStorMode.Text = "自动";
+                }
+                else
+                {
+                    m_cbStorMode.Text = "手动";
+                }
                 m_tbUvLamp.Text = data.m_strUvLamp;
                 m_tbPumpPipe.Text = data.m_strPumpPipe;
             }
@@ -86,18 +93,22 @@ namespace TOCTest.forms
                 TOCTest.comm.CommPort objCommPort = TOCTest.comm.CommPort.Instance;
                 string str = "FF" + "{0}" + "0x00" + "0x19" + "0x57" + "0x50";
                 string m_strSampVmax = Convert.ToInt64(m_tbSampVmax.Text).ToString("X4");       //内部样品流速
-                string m_strSampTimer = Convert.ToInt64(m_tbSampTimer.Text).ToString("X4");      //在线采样周期
+               // string m_strSampTimer = Convert.ToInt64(m_tbSampTimer.Text).ToString("X4");      //在线采样周期
                 string m_strChannlSum = Convert.ToInt64(m_tbChannlSum.Text).ToString("X2");     //在线通道数
                 string m_strLTests = Convert.ToInt64(m_tbLTests.Text).ToString("X2");           //离线测试次数
                 string m_strLForsake = Convert.ToInt64(m_tbLForsake.Text).ToString("X2");       //离线抛弃次数
                 string m_strLCleartime = Convert.ToInt64(m_tbLCleartime.Text).ToString("X4");     //离线冲洗时间
                 string m_strTOCAlarmup = Convert.ToInt64(m_tbTOCAlarmup.Text).ToString("X4");     //TOC报警上限
                 string m_strUSAlarmup = Convert.ToInt64(m_tbUSAlarmup.Text).ToString("X4");      //电导率报警上限
-                int nStorMode = TOCTest.utils.help.Asc(m_tbStorMode.Text);
-                string m_strStorMode = nStorMode.ToString("X2"); ;       //数据存储方式
+                int nStorMode = 0;
+                if (m_cbStorMode.Text=="自动") 
+                {
+                    nStorMode = 1;
+                }
+                string m_strStorMode = nStorMode.ToString("X2");;       //数据存储方式
                 string m_strUvLamp = Convert.ToInt64(m_tbUvLamp.Text).ToString("X4");
                 string m_strPumpPipe = Convert.ToInt64(m_tbPumpPipe.Text).ToString("X4");
-                str = str + m_strSampVmax + m_strSampTimer + m_strChannlSum + m_strLTests + m_strLForsake + m_strLCleartime + m_strTOCAlarmup + m_strUSAlarmup + m_strStorMode + m_strUvLamp + m_strPumpPipe + "00";
+                str = str + m_strSampVmax + /*m_strSampTimer + */m_strChannlSum + m_strLTests + m_strLForsake + m_strLCleartime + m_strTOCAlarmup + m_strUSAlarmup + m_strStorMode + m_strUvLamp + m_strPumpPipe + "00";
                 str = string.Format(str, TOCTest.db.dbMrg.QueryDeviceNum(TOCTest.Main.ms_strDeviceName));
                 byte[] byDate = TOCTest.utils.help.getCheckSum(str);
                 objCommPort.Send(byDate);
@@ -108,9 +119,9 @@ namespace TOCTest.forms
                 {
                     string strConnection = "Provider=Microsoft.Jet.OLEDB.4.0;  Data Source=..\\..\\mdb\\SystemParameter.mdb";
                     string strInfo = String.Format("insert into {0} ([name],[SampVmax],[SampTimer],[ChannlSum],[LTests],[LForsake],[LCleartime],[TOCAlarmup],[USAlarmup],[StorMode],[UvLamp],[PumpPipe])values ('{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}')",
-                        Main.ms_strDeviceName, Main.ms_strDeviceName, m_tbSampVmax.Text, m_tbSampTimer.Text, m_tbChannlSum.Text,
+                        Main.ms_strDeviceName, Main.ms_strDeviceName, m_tbSampVmax.Text, /*m_tbSampTimer.Text*/"", m_tbChannlSum.Text,
                         m_tbLTests.Text, m_tbLForsake.Text, m_tbLCleartime.Text, m_tbTOCAlarmup.Text, m_tbUSAlarmup.Text,
-                        m_tbStorMode.Text, m_tbUvLamp.Text, m_tbPumpPipe.Text);
+                        m_cbStorMode.Text, m_tbUvLamp.Text, m_tbPumpPipe.Text);
                     TOCTest.db.dbMrg.AlterDB(strConnection, strInfo);
                 }
                 else
@@ -120,9 +131,9 @@ namespace TOCTest.forms
                         + "',[LTests]='" + "{5}" + "',[LForsake]='" + "{6}" + "',[LCleartime]='" + "{7}" + "',[TOCAlarmup]='" + "{8}"
                         + "',[USAlarmup]='" + "{9}" + "',[StorMode]='" + "{10}" + "',[UvLamp]='" + "{11}" + "',[PumpPipe]='" + "{12}"
                         + "' where [name]='" + Main.ms_strDeviceName + "'";
-                    strInfo = string.Format(strInfo, Main.ms_strDeviceName, Main.ms_strDeviceName, m_tbSampVmax.Text, m_tbSampTimer.Text, m_tbChannlSum.Text,
+                    strInfo = string.Format(strInfo, Main.ms_strDeviceName, Main.ms_strDeviceName, m_tbSampVmax.Text, /*m_tbSampTimer.Text*/"", m_tbChannlSum.Text,
                         m_tbLTests.Text, m_tbLForsake.Text, m_tbLCleartime.Text, m_tbTOCAlarmup.Text, m_tbUSAlarmup.Text,
-                        m_tbStorMode.Text, m_tbUvLamp.Text, m_tbPumpPipe.Text);
+                        m_cbStorMode.Text, m_tbUvLamp.Text, m_tbPumpPipe.Text);
                     TOCTest.db.dbMrg.AlterDB(strConnection, strInfo);
                 }
 
@@ -155,14 +166,22 @@ namespace TOCTest.forms
                     if (listInfo.Count > 0)
                     {
                         m_tbSampVmax.Text = listInfo[2];
-                        m_tbSampTimer.Text = listInfo[3];
+                       // m_tbSampTimer.Text = listInfo[3];
                         m_tbChannlSum.Text = listInfo[4];
                         m_tbLTests.Text = listInfo[5];
                         m_tbLForsake.Text = listInfo[6];
                         m_tbLCleartime.Text = listInfo[7];
                         m_tbTOCAlarmup.Text = listInfo[8];
                         m_tbUSAlarmup.Text = listInfo[9];
-                        m_tbStorMode.Text = listInfo[10];
+                        if (listInfo[10] == "1")
+                        {
+                            m_cbStorMode.Text = "自动";
+                        }
+                        else
+                        {
+                            m_cbStorMode.Text = "手动";
+                        }
+                        m_cbStorMode.Text = listInfo[10];
                         m_tbUvLamp.Text = listInfo[11];
                         m_tbPumpPipe.Text = listInfo[12];
                     }

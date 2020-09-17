@@ -395,7 +395,7 @@ namespace TOCTest.db
                     column.Name = "id";
                     column.Type = ADOX.DataTypeEnum.adInteger;
                     column.DefinedSize = 50;
-                    column.Properties["AutoIncrement"].Value = true;
+                    column.Properties["AutoIncrement"].Value = false;
                     table.Columns.Append(column, DataTypeEnum.adInteger, 50);
                     table.Keys.Append("FirstTablePrimaryKey", KeyTypeEnum.adKeyPrimary, column, null, null);
                     foreach (string strColumns in listColumns)

@@ -109,12 +109,14 @@ namespace TOCTest.forms
         {
             ms_objOnline.Clear();
             DataTable dtTOC = new DataTable("ds3");
-            dtTOC.Columns.Add("TOC", typeof(Int32));
+            dtTOC.Columns.Add("TOC", typeof(Int64));
+            dtTOC.Columns.Add("TOCView", typeof(String));
             dtTOC.Columns.Add("Time", typeof(DateTime));
+            dtTOC.Columns.Add("Unit", typeof(String));
             strTOCValue = strTOCValue.Substring(0, strTOCValue.Length - 1);
             string[] strTOCList = strTOCValue.Split(',');
             string[] strICList = strICValue.Split(',');
-            DateTime begin = help.GetDateTime(strTime);
+            DateTime begin = help.GetDateTime(strTime).AddMinutes(10);
 
             for (int i = 0; i < strTOCList.Length; i++)
             {
@@ -122,10 +124,12 @@ namespace TOCTest.forms
                 if (strTOCList[i] == "")
                 {
                     dr["TOC"] = 0;
+                    dr["TOCView"] = "0.000";
                 }
                 else
                 {
-                    dr["TOC"] = Convert.ToInt64(strTOCList[i]);
+                    dr["TOC"] = int.Parse(strTOCList[i]);
+                    dr["TOCView"] = help.ConvertString2Double(strTOCList[i].ToString());
                 }
 
                 dr["Time"] = begin;
@@ -135,6 +139,7 @@ namespace TOCTest.forms
                 objOniline.m_dtInterval = begin;
                 ms_objOnline.Add(objOniline);
                 begin = begin.AddMinutes(10);
+                dr["Unit"] = " mg/L";
                 dtTOC.Rows.Add(dr);
             }
             return dtTOC;

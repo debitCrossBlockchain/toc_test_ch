@@ -14,13 +14,13 @@ namespace TOCTest.utils
     {
         public static DateTime GetDateTime(string strDateTime)
         {
-            if (strDateTime.Length != 12)
+            if (strDateTime.Length != 17)
             {
                 return DateTime.Now;
             }
             string str = strDateTime;
-            string strInfo = str.Substring(0, 4) + "/" + str.Substring(4, 2) + "/" + str.Substring(6, 2) + " "
-                + str.Substring(8, 2) + ":" + str.Substring(10, 2);
+            string strInfo = str.Substring(1, 4) + "/" + str.Substring(6, 2) + "/" + str.Substring(9, 2) + " "
+                + str.Substring(12, 2) + ":" + str.Substring(15, 2);
             DateTime begin = DateTime.ParseExact(strInfo, "yyyy/MM/dd HH:mm", null);
             return begin;
         }
@@ -55,6 +55,17 @@ namespace TOCTest.utils
             }
         }
 
+        public static string ConvertString2Double(string source)
+        {
+            if (!string.IsNullOrEmpty(source) && (Regex.IsMatch(source, @"^[1-9]\d*|0$") || Regex.IsMatch(source, @"^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$")))
+            {
+                return Convert.ToDecimal(float.Parse(source) / 1000).ToString("F3");
+            }
+            else
+            {
+                return "0.000";
+            }
+        }
 
         /// <summary>
         /// 获取校验和

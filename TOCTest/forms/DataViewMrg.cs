@@ -12,6 +12,7 @@ using System.Data.OleDb;
 using System.Collections;
 using TOCTest.comm;
 using TOCTest.utils;
+using System.Text.RegularExpressions;
 
 namespace TOCTest.forms
 {
@@ -96,7 +97,7 @@ namespace TOCTest.forms
                 m_btnImport.Visible = false;
             }
             string strTreeView = Main.ms_strDeviceName.ToString();
-            string strQuery = "Select CodeType as type,Test_StartDt as dtTest,Test_OprationName as Name From {0}";
+            string strQuery = "Select id as id,CodeType as type,Test_StartDt as dtTest,Test_OprationName as Name From {0}";
             string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;  Data Source=..\\..\\mdb\\HistoryData.mdb";
             strQuery = string.Format(strQuery, strTreeView);
             OleDbConnection conn = new OleDbConnection(strConn);
@@ -109,6 +110,22 @@ namespace TOCTest.forms
                 dataAdapter.Fill(ds);
                 m_dataGridViewList.DataSource = ds.Tables[0].DefaultView;
                 m_dataGridViewList.AllowUserToAddRows = false;
+                for (int i = 0; i < m_dataGridViewList.Rows.Count; i++)
+                {
+                    if (m_cbTestMode.SelectedIndex == 0)
+                    {
+                        m_dataGridViewList.Rows[i].Cells[1].Value = "在线测试";
+                    }
+                    else if (m_cbTestMode.SelectedIndex == 1)
+                    {
+                        m_dataGridViewList.Rows[i].Cells[1].Value = "离线测试";
+                    }
+                    else if (m_cbTestMode.SelectedIndex == 2)
+                    {
+                        m_dataGridViewList.Rows[i].Cells[1].Value = "系统适应性验证";
+                    }
+
+                }
             }
             catch (Exception ex)
             {
@@ -124,7 +141,7 @@ namespace TOCTest.forms
         private void query()
         {
             string strTreeView = Main.ms_strDeviceName.ToString();
-            string strQuery = "Select CodeType as type,Test_StartDt as dtTest,Test_OprationName as Name From {0}";
+            string strQuery = "Select id as id,CodeType as type,Test_StartDt as dtTest,Test_OprationName as Name From {0}";
             string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;  Data Source=..\\..\\mdb\\HistoryData.mdb";
 
 
@@ -147,7 +164,7 @@ namespace TOCTest.forms
                     break;
 
             }
-            strQuery = "Select CodeType as type,Test_StartDt as dtTest,Test_OprationName as Name From {0} " + "where [CodeType] ='" + strTestMode + "'";
+            strQuery = "Select id as id,CodeType as type,Test_StartDt as dtTest,Test_OprationName as Name From {0} " + "where [CodeType] ='" + strTestMode + "'";
 
             DataTable mDataTable = new DataTable("ds2");
 
@@ -162,6 +179,22 @@ namespace TOCTest.forms
                 dataAdapter.Fill(ds);
                 m_dataGridViewList.DataSource = ds.Tables[0].DefaultView;
                 m_dataGridViewList.AllowUserToAddRows = false;
+                for (int i = 0; i < m_dataGridViewList.Rows.Count; i++)
+                {  
+                    if (m_cbTestMode.SelectedIndex == 0)
+                    {
+                        m_dataGridViewList.Rows[i].Cells[1].Value = "在线测试";
+                    }
+                    else if (m_cbTestMode.SelectedIndex == 1)
+                    {
+                        m_dataGridViewList.Rows[i].Cells[1].Value = "离线测试";
+                    }
+                    else if (m_cbTestMode.SelectedIndex == 2)
+                    {
+                        m_dataGridViewList.Rows[i].Cells[1].Value = "系统适应性验证";
+                    }
+
+                }
             }
             catch (Exception ex)
             {
@@ -193,11 +226,11 @@ namespace TOCTest.forms
                 {
                     string mTreeView = Main.ms_strDeviceName.ToString();
                     string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;  Data Source=..\\..\\mdb\\HistoryData.mdb";
-                    string strQuery = "Select * From {0} where [Test_StartDt]='{1}'";
-                    strQuery = string.Format(strQuery, mTreeView, m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString());
+                    string strQuery = "Select * From {0} where [id]={1}";
+                    strQuery = string.Format(strQuery, mTreeView, m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value);
                     OleDbConnection conn = new OleDbConnection(strConn);
 
-                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value.ToString() == "2")
+                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString() == "在线测试")
                     {
                         conn.Open();
                         OleDbCommand cmd = new OleDbCommand(strQuery, conn);
@@ -218,7 +251,7 @@ namespace TOCTest.forms
                         objonline.Show();
                         conn.Close();
                     }
-                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value.ToString() == "1")
+                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString() == "离线测试")
                     {
                         conn.Open();
                         OleDbCommand cmd = new OleDbCommand(strQuery, conn);
@@ -228,7 +261,14 @@ namespace TOCTest.forms
                             ms_objOfflineResultEx.m_strInterval = reader[6].ToString();
                             ms_objOfflineResultEx.m_strCodeName = reader[5].ToString();
                             ms_objOfflineResultEx.m_strCodeType = reader[4].ToString();
-                            ms_objOfflineResultEx.m_strSampleWay = reader[17].ToString();
+                            if (reader[17].ToString() == "1")
+                            {
+                                ms_objOfflineResultEx.m_strSampleWay = "自动";
+                            }
+                            else
+                            {
+                                ms_objOfflineResultEx.m_strSampleWay = "手动";
+                            }
                             ms_objOfflineResultEx.m_strAveTOC = reader[11].ToString();
                             ms_objOfflineResultEx.m_strAveIC = reader[12].ToString();
                             ms_objOfflineResultEx.m_strTOC = reader[19].ToString();
@@ -239,7 +279,7 @@ namespace TOCTest.forms
                         conn.Close();
                     }
 
-                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value.ToString() == "3")
+                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString() == "系统适应性验证")
                     {
                         conn.Open();
                         OleDbCommand cmd = new OleDbCommand(strQuery, conn);
@@ -250,9 +290,10 @@ namespace TOCTest.forms
                             string strIC = reader[20].ToString();
                             string strCon = reader[21].ToString();
                             ms_objConResultEx.m_strRwTOC = strTOC.Split(',')[0].ToString();
-                            ms_objConResultEx.m_strRw = strTOC.Split(',')[6].ToString();
-                            ms_objConResultEx.m_strRs = strTOC.Split(',')[13].ToString();
-                            ms_objConResultEx.m_strRss = strTOC.Split(',')[20].ToString();
+                           
+                            ms_objConResultEx.m_strRw = help.ConvertString2Double(strTOC.Split(',')[6].ToString());
+                            ms_objConResultEx.m_strRs = help.ConvertString2Double(strTOC.Split(',')[13].ToString());
+                            ms_objConResultEx.m_strRss = help.ConvertString2Double(strTOC.Split(',')[20].ToString());
                             ms_objConResultEx.m_strResponseRate = strIC.Split(',')[0].ToString();
 
                         }
@@ -426,6 +467,7 @@ namespace TOCTest.forms
         {
             ConfigHis m_objConfigHis = new ConfigHis();
             char[] parsChar = { ',' };
+            int id = Convert.ToInt32(sLine.Split(parsChar)[0].ToString());
             m_objConfigHis.m_strCodeType = sLine.Split(parsChar)[1].ToString();
             m_objConfigHis.m_strCodeName = sLine.Split(parsChar)[2].ToString();
             m_objConfigHis.m_strStartTime = sLine.Split(parsChar)[3].ToString();
@@ -441,8 +483,8 @@ namespace TOCTest.forms
             }
 
             string strConnection = "Provider=Microsoft.Jet.OLEDB.4.0;  Data Source=..\\..\\mdb\\HistoryData.mdb";
-            string strDBInfo = String.Format("insert into {0} ([CodeType],[CodeName],[Test_StartDt],[Test_EndDt],[Test_OprationName],[Channlesum],[OnlinestFlag],[AveTOCValue],[AveTCValue],[AveConduct],[LsampleNum],[Htest_testimes],[Start_Bott],[SampleWay],[TOCValue],[TCValue],[Conduct]) values ('{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}')",
-                TOCTest.Main.ms_strDeviceName, m_objConfigHis.m_strCodeType,
+            string strDBInfo = String.Format("insert into {0} ([id],[CodeType],[CodeName],[Test_StartDt],[Test_EndDt],[Test_OprationName],[Channlesum],[OnlinestFlag],[AveTOCValue],[AveTCValue],[AveConduct],[LsampleNum],[Htest_testimes],[Start_Bott],[SampleWay],[TOCValue],[TCValue],[Conduct]) values ({1},'{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}')",
+                TOCTest.Main.ms_strDeviceName, id,m_objConfigHis.m_strCodeType,
                 m_objConfigHis.m_strCodeName, m_objConfigHis.m_strStartTime,
                 m_objConfigHis.m_strEndTime, m_objConfigHis.m_strOperator,
                 m_objConfigHis.m_strChannlesum, m_objConfigHis.m_stronlinestflag,
@@ -459,6 +501,7 @@ namespace TOCTest.forms
         {
             ConfigHis m_objConfigHis = new ConfigHis();
             char[] parsChar = { ',' };
+            int id = Convert.ToInt32(sLine.Split(parsChar)[0].ToString());
             m_objConfigHis.m_strCodeType = sLine.Split(parsChar)[1].ToString();
             m_objConfigHis.m_strCodeName = sLine.Split(parsChar)[2].ToString();
             m_objConfigHis.m_strStartTime = sLine.Split(parsChar)[3].ToString();
@@ -485,8 +528,8 @@ namespace TOCTest.forms
 
 
             string strConnection = "Provider=Microsoft.Jet.OLEDB.4.0;  Data Source=..\\..\\mdb\\HistoryData.mdb";
-            string strDBInfo = String.Format("insert into {0} ([CodeType],[CodeName],[Test_StartDt],[Test_EndDt],[Test_OprationName],[Channlesum],[OnlinestFlag],[AveTOCValue],[AveTCValue],[AveConduct],[LsampleNum],[Htest_testimes],[Start_Bott],[SampleWay],[TOCValue],[TCValue],[Conduct],[Htest_sum]) values ('{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}')",
-                TOCTest.Main.ms_strDeviceName, m_objConfigHis.m_strCodeType,
+            string strDBInfo = String.Format("insert into {0} ([id],[CodeType],[CodeName],[Test_StartDt],[Test_EndDt],[Test_OprationName],[Channlesum],[OnlinestFlag],[AveTOCValue],[AveTCValue],[AveConduct],[LsampleNum],[Htest_testimes],[Start_Bott],[SampleWay],[TOCValue],[TCValue],[Conduct],[Htest_sum]) values ({1},'{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}')",
+                TOCTest.Main.ms_strDeviceName,id, m_objConfigHis.m_strCodeType,
                 m_objConfigHis.m_strCodeName, m_objConfigHis.m_strStartTime,
                 m_objConfigHis.m_strEndTime, m_objConfigHis.m_strOperator,
                 m_objConfigHis.m_strChannlesum, m_objConfigHis.m_stronlinestflag,
@@ -503,6 +546,7 @@ namespace TOCTest.forms
         {
             ConfigHis m_objConfigHis = new ConfigHis();
             char[] parsChar = { ',' };
+            int id = Convert.ToInt32(sLine.Split(parsChar)[0].ToString());
             m_objConfigHis.m_strCodeType = sLine.Split(parsChar)[1].ToString();
             m_objConfigHis.m_strCodeName = sLine.Split(parsChar)[2].ToString();
             m_objConfigHis.m_strStartTime = sLine.Split(parsChar)[3].ToString();
@@ -526,8 +570,8 @@ namespace TOCTest.forms
             m_objConfigHis.m_strBott_Amount = sLine.Split(parsChar)[11].ToString();
 
             string strConnection = "Provider=Microsoft.Jet.OLEDB.4.0;  Data Source=..\\..\\mdb\\HistoryData.mdb";
-            string strDBInfo = String.Format("insert into {0} ([CodeType],[CodeName],[Test_StartDt],[Test_EndDt],[Test_OprationName],[Channlesum],[OnlinestFlag],[AveTOCValue],[AveTCValue],[AveConduct],[Bott_Amount],[LsampleNum],[Htest_testimes],[Start_Bott],[SampleWay],[TOCValue],[TCValue],[Conduct],[Htest_sum]) values ('{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}')",
-                TOCTest.Main.ms_strDeviceName, m_objConfigHis.m_strCodeType,
+            string strDBInfo = String.Format("insert into {0} ([id],[CodeType],[CodeName],[Test_StartDt],[Test_EndDt],[Test_OprationName],[Channlesum],[OnlinestFlag],[AveTOCValue],[AveTCValue],[AveConduct],[Bott_Amount],[LsampleNum],[Htest_testimes],[Start_Bott],[SampleWay],[TOCValue],[TCValue],[Conduct],[Htest_sum]) values ({1},'{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}')",
+                TOCTest.Main.ms_strDeviceName,id, m_objConfigHis.m_strCodeType,
                 m_objConfigHis.m_strCodeName, m_objConfigHis.m_strStartTime,
                 m_objConfigHis.m_strEndTime, m_objConfigHis.m_strOperator,
                 m_objConfigHis.m_strChannlesum, m_objConfigHis.m_stronlinestflag,
@@ -574,10 +618,15 @@ namespace TOCTest.forms
                 StreamReader objReader = new StreamReader(filePath, System.Text.Encoding.GetEncoding("GB2312"));
                 char[] parsChar = { ',' };
                 string sLine = "";
+                int i = 1;
                 objReader.ReadLine();
                 string firstLine = objReader.ReadLine();
                 while (sLine != null)
                 {
+                    ++i;
+                    if(i==163){
+                        int a=0;
+                    }
                     sLine = objReader.ReadLine();
                     if (sLine != null && !sLine.Equals(""))
                     {
@@ -653,11 +702,11 @@ namespace TOCTest.forms
                     
                     string mTreeView = Main.ms_strDeviceName.ToString();
                     string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;  Data Source=..\\..\\mdb\\HistoryData.mdb";
-                    string strQuery = "Select * From {0} where [Test_StartDt]='{1}'";
-                    strQuery = string.Format(strQuery, mTreeView, m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString());
+                    string strQuery = "Select * From {0} where [id]={1}";
+                    strQuery = string.Format(strQuery, mTreeView, m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value);
                     OleDbConnection conn = new OleDbConnection(strConn);
 
-                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value.ToString() == "2")
+                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString() == "在线测试")
                     {
                         conn.Open();
                         OleDbCommand cmd = new OleDbCommand(strQuery, conn);
@@ -678,7 +727,7 @@ namespace TOCTest.forms
                         objonline.Show();
                         conn.Close();
                     }
-                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value.ToString() == "1")
+                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString() == "离线测试")
                     {
                         conn.Open();
                         OleDbCommand cmd = new OleDbCommand(strQuery, conn);
@@ -715,7 +764,7 @@ namespace TOCTest.forms
                         conn.Close();
                     }
 
-                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[0].Value.ToString() == "3")
+                    if (m_dataGridViewList.Rows[m_dataGridViewList.CurrentRow.Index].Cells[1].Value.ToString() == "系统适应性验证")
                     {
                         conn.Open();
                         OleDbCommand cmd = new OleDbCommand(strQuery, conn);
@@ -744,9 +793,9 @@ namespace TOCTest.forms
                             string strIC = reader[20].ToString();
                             string strCon = reader[7].ToString();
                             ms_objConResultEx.m_strRwTOC = strTOC.Split(',')[0].ToString();
-                            ms_objConResultEx.m_strRw = strTOC.Split(',')[6].ToString();
-                            ms_objConResultEx.m_strRs = strTOC.Split(',')[13].ToString();
-                            ms_objConResultEx.m_strRss = strTOC.Split(',')[20].ToString();
+                            ms_objConResultEx.m_strRw = help.ConvertString2Double(strTOC.Split(',')[6].ToString());
+                            ms_objConResultEx.m_strRs = help.ConvertString2Double(strTOC.Split(',')[13].ToString());
+                            ms_objConResultEx.m_strRss = help.ConvertString2Double(strTOC.Split(',')[20].ToString());
                             ms_objConResultEx.m_strResponseRate = strIC.Split(',')[0].ToString();
                         }
                         ViewConReport objViewConReport = new ViewConReport();
@@ -766,10 +815,11 @@ namespace TOCTest.forms
 
         private void m_dataGridViewList_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            for (int i = 0; i < m_dataGridViewList.Rows.Count; i++)
-            {
-                m_dataGridViewList.Rows[i].HeaderCell.Value = (i).ToString();
-            }
+            //int n = 1;
+            //for (int i = 0; i < m_dataGridViewList.Rows.Count; i++)
+            //{
+            //    m_dataGridViewList.Rows[i].HeaderCell.Value = (n++).ToString();
+            //}
         }
     }
 }

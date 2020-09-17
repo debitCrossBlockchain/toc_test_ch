@@ -29,6 +29,21 @@
               <xs:element name="TOCAve" msprop:Generator_ColumnVarNameInTable="columnTOCAve" msprop:Generator_ColumnPropNameInRow="TOCAve" msprop:Generator_ColumnPropNameInTable="TOCAveColumn" msprop:Generator_UserColumnName="TOCAve" type="xs:string" minOccurs="0" />
               <xs:element name="ICAve" msprop:Generator_ColumnVarNameInTable="columnICAve" msprop:Generator_ColumnPropNameInRow="ICAve" msprop:Generator_ColumnPropNameInTable="ICAveColumn" msprop:Generator_UserColumnName="ICAve" type="xs:string" minOccurs="0" />
               <xs:element name="ConAve" msprop:Generator_ColumnVarNameInTable="columnConAve" msprop:Generator_ColumnPropNameInRow="ConAve" msprop:Generator_ColumnPropNameInTable="ConAveColumn" msprop:Generator_UserColumnName="ConAve" type="xs:string" minOccurs="0" />
+              <xs:element name="rTimes" msprop:Generator_ColumnVarNameInTable="columnrTimes" msprop:Generator_ColumnPropNameInRow="rTimes" msprop:Generator_ColumnPropNameInTable="rTimesColumn" msprop:Generator_UserColumnName="rTimes" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OfflineTableResult" msprop:Generator_TableClassName="OfflineTableResultDataTable" msprop:Generator_TableVarName="tableOfflineTableResult" msprop:Generator_RowChangedName="OfflineTableResultRowChanged" msprop:Generator_TablePropName="OfflineTableResult" msprop:Generator_RowDeletingName="OfflineTableResultRowDeleting" msprop:Generator_RowChangingName="OfflineTableResultRowChanging" msprop:Generator_RowEvHandlerName="OfflineTableResultRowChangeEventHandler" msprop:Generator_RowDeletedName="OfflineTableResultRowDeleted" msprop:Generator_RowClassName="OfflineTableResultRow" msprop:Generator_UserTableName="OfflineTableResult" msprop:Generator_RowEvArgName="OfflineTableResultRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BottleNO" msprop:Generator_ColumnVarNameInTable="columnBottleNO" msprop:Generator_ColumnPropNameInRow="BottleNO" msprop:Generator_ColumnPropNameInTable="BottleNOColumn" msprop:Generator_UserColumnName="BottleNO" type="xs:string" minOccurs="0" />
+              <xs:element name="t1st" msprop:Generator_ColumnVarNameInTable="columnt1st" msprop:Generator_ColumnPropNameInRow="t1st" msprop:Generator_ColumnPropNameInTable="t1stColumn" msprop:Generator_UserColumnName="t1st" type="xs:string" minOccurs="0" />
+              <xs:element name="t2st" msprop:Generator_ColumnVarNameInTable="columnt2st" msprop:Generator_ColumnPropNameInRow="t2st" msprop:Generator_ColumnPropNameInTable="t2stColumn" msprop:Generator_UserColumnName="t2st" type="xs:string" minOccurs="0" />
+              <xs:element name="t3st" msprop:Generator_ColumnVarNameInTable="columnt3st" msprop:Generator_ColumnPropNameInRow="t3st" msprop:Generator_ColumnPropNameInTable="t3stColumn" msprop:Generator_UserColumnName="t3st" type="xs:string" minOccurs="0" />
+              <xs:element name="t4st" msprop:Generator_ColumnVarNameInTable="columnt4st" msprop:Generator_ColumnPropNameInRow="t4st" msprop:Generator_ColumnPropNameInTable="t4stColumn" msprop:Generator_UserColumnName="t4st" type="xs:string" minOccurs="0" />
+              <xs:element name="t5st" msprop:Generator_ColumnVarNameInTable="columnt5st" msprop:Generator_ColumnPropNameInRow="t5st" msprop:Generator_ColumnPropNameInTable="t5stColumn" msprop:Generator_UserColumnName="t5st" type="xs:string" minOccurs="0" />
+              <xs:element name="t6st" msprop:Generator_ColumnVarNameInTable="columnt6st" msprop:Generator_ColumnPropNameInRow="t6st" msprop:Generator_ColumnPropNameInTable="t6stColumn" msprop:Generator_UserColumnName="t6st" type="xs:string" minOccurs="0" />
+              <xs:element name="TOCResult" msprop:Generator_ColumnVarNameInTable="columnTOCResult" msprop:Generator_ColumnPropNameInRow="TOCResult" msprop:Generator_ColumnPropNameInTable="TOCResultColumn" msprop:Generator_UserColumnName="TOCResult" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

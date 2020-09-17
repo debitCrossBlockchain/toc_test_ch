@@ -22,20 +22,22 @@ namespace TOCTest.forms
             m_tbGroupName.Text = DataViewMrg.ms_objOfflineResultEx.m_strCodeName;
             m_tbClass.Text = DataViewMrg.ms_objOfflineResultEx.m_strCodeType;
             m_tbTestWay.Text = DataViewMrg.ms_objOfflineResultEx.m_strSampleWay;
-            m_tbAveTOC.Text = DataViewMrg.ms_objOfflineResultEx.m_strAveTOC;
-            m_tbAveIC.Text = DataViewMrg.ms_objOfflineResultEx.m_strAveIC;
+            int toc_length = DataViewMrg.ms_objOfflineResultEx.m_strAveTOC.Length-1;
+            m_tbAveTOC.Text = DataViewMrg.ms_objOfflineResultEx.m_strAveTOC.Substring(0, toc_length);
+            int ic_length = DataViewMrg.ms_objOfflineResultEx.m_strAveIC.Length - 1;
+            m_tbAveIC.Text = DataViewMrg.ms_objOfflineResultEx.m_strAveIC.Substring(0, ic_length);
             DataTable dtTOC = new DataTable("ds2");
-            dtTOC.Columns.Add("TOC(mg/L)", typeof(String));
-            dtTOC.Columns.Add("IC(mg/L)", typeof(String));
+            dtTOC.Columns.Add("TOC(ug/L)", typeof(String));
+            dtTOC.Columns.Add("IC(ug/L)", typeof(String));
 
             string[] strTOCList = DataViewMrg.ms_objOfflineResultEx.m_strTOC.Split(',');
             string[] strICList = DataViewMrg.ms_objOfflineResultEx.m_strIC.Split(',');
-            for(int i=0;i< strTOCList.Length;i++)
+            for (int i = 0; i < strTOCList.Length; i++)
             {
                 DataRow dr = dtTOC.NewRow();
 
-                dr["TOC(mg/L)"] = strTOCList[i];
-                dr["IC(mg/L)"] = strICList[i];
+                dr["TOC(ug/L)"] = strTOCList[i];
+                dr["IC(ug/L)"] = strICList[i];
                 dtTOC.Rows.Add(dr);
             }
 

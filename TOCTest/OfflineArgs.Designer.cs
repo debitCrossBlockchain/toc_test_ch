@@ -26,6 +26,8 @@ namespace TOCTest {
         
         private OfflineArgsDataTable tableOfflineArgs;
         
+        private OfflineTableResultDataTable tableOfflineTableResult;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -57,6 +59,9 @@ namespace TOCTest {
                 if ((ds.Tables["OfflineArgs"] != null)) {
                     base.Tables.Add(new OfflineArgsDataTable(ds.Tables["OfflineArgs"]));
                 }
+                if ((ds.Tables["OfflineTableResult"] != null)) {
+                    base.Tables.Add(new OfflineTableResultDataTable(ds.Tables["OfflineTableResult"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -82,6 +87,16 @@ namespace TOCTest {
         public OfflineArgsDataTable _OfflineArgs {
             get {
                 return this.tableOfflineArgs;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public OfflineTableResultDataTable OfflineTableResult {
+            get {
+                return this.tableOfflineTableResult;
             }
         }
         
@@ -155,6 +170,9 @@ namespace TOCTest {
                 if ((ds.Tables["OfflineArgs"] != null)) {
                     base.Tables.Add(new OfflineArgsDataTable(ds.Tables["OfflineArgs"]));
                 }
+                if ((ds.Tables["OfflineTableResult"] != null)) {
+                    base.Tables.Add(new OfflineTableResultDataTable(ds.Tables["OfflineTableResult"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -194,6 +212,12 @@ namespace TOCTest {
                     this.tableOfflineArgs.InitVars();
                 }
             }
+            this.tableOfflineTableResult = ((OfflineTableResultDataTable)(base.Tables["OfflineTableResult"]));
+            if ((initTable == true)) {
+                if ((this.tableOfflineTableResult != null)) {
+                    this.tableOfflineTableResult.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -206,11 +230,19 @@ namespace TOCTest {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableOfflineArgs = new OfflineArgsDataTable();
             base.Tables.Add(this.tableOfflineArgs);
+            this.tableOfflineTableResult = new OfflineTableResultDataTable();
+            base.Tables.Add(this.tableOfflineTableResult);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerialize_OfflineArgs() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeOfflineTableResult() {
             return false;
         }
         
@@ -272,6 +304,9 @@ namespace TOCTest {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void OfflineArgsRowChangeEventHandler(object sender, OfflineArgsRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void OfflineTableResultRowChangeEventHandler(object sender, OfflineTableResultRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -306,6 +341,8 @@ namespace TOCTest {
             private global::System.Data.DataColumn columnICAve;
             
             private global::System.Data.DataColumn columnConAve;
+            
+            private global::System.Data.DataColumn columnrTimes;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -454,6 +491,14 @@ namespace TOCTest {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn rTimesColumn {
+                get {
+                    return this.columnrTimes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -489,7 +534,7 @@ namespace TOCTest {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OfflineArgsRow AddOfflineArgsRow(string deviceName, string groupName, string tester, string testTime, string sampleQuantity, string testTimes, string startBottle, string samples, string TOC, string IC, string Conductivity, string TOCAve, string ICAve, string ConAve) {
+            public OfflineArgsRow AddOfflineArgsRow(string deviceName, string groupName, string tester, string testTime, string sampleQuantity, string testTimes, string startBottle, string samples, string TOC, string IC, string Conductivity, string TOCAve, string ICAve, string ConAve, string rTimes) {
                 OfflineArgsRow rowOfflineArgsRow = ((OfflineArgsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         deviceName,
@@ -505,7 +550,8 @@ namespace TOCTest {
                         Conductivity,
                         TOCAve,
                         ICAve,
-                        ConAve};
+                        ConAve,
+                        rTimes};
                 rowOfflineArgsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOfflineArgsRow);
                 return rowOfflineArgsRow;
@@ -542,6 +588,7 @@ namespace TOCTest {
                 this.columnTOCAve = base.Columns["TOCAve"];
                 this.columnICAve = base.Columns["ICAve"];
                 this.columnConAve = base.Columns["ConAve"];
+                this.columnrTimes = base.Columns["rTimes"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -575,6 +622,8 @@ namespace TOCTest {
                 base.Columns.Add(this.columnICAve);
                 this.columnConAve = new global::System.Data.DataColumn("ConAve", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnConAve);
+                this.columnrTimes = new global::System.Data.DataColumn("rTimes", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrTimes);
                 this.ExtendedProperties.Add("Generator_TablePropName", "_OfflineArgs");
                 this.ExtendedProperties.Add("Generator_UserTableName", "OfflineArgs");
             }
@@ -663,6 +712,351 @@ namespace TOCTest {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "OfflineArgsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class OfflineTableResultDataTable : global::System.Data.TypedTableBase<OfflineTableResultRow> {
+            
+            private global::System.Data.DataColumn columnBottleNO;
+            
+            private global::System.Data.DataColumn columnt1st;
+            
+            private global::System.Data.DataColumn columnt2st;
+            
+            private global::System.Data.DataColumn columnt3st;
+            
+            private global::System.Data.DataColumn columnt4st;
+            
+            private global::System.Data.DataColumn columnt5st;
+            
+            private global::System.Data.DataColumn columnt6st;
+            
+            private global::System.Data.DataColumn columnTOCResult;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OfflineTableResultDataTable() {
+                this.TableName = "OfflineTableResult";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal OfflineTableResultDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected OfflineTableResultDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BottleNOColumn {
+                get {
+                    return this.columnBottleNO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn t1stColumn {
+                get {
+                    return this.columnt1st;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn t2stColumn {
+                get {
+                    return this.columnt2st;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn t3stColumn {
+                get {
+                    return this.columnt3st;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn t4stColumn {
+                get {
+                    return this.columnt4st;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn t5stColumn {
+                get {
+                    return this.columnt5st;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn t6stColumn {
+                get {
+                    return this.columnt6st;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TOCResultColumn {
+                get {
+                    return this.columnTOCResult;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OfflineTableResultRow this[int index] {
+                get {
+                    return ((OfflineTableResultRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event OfflineTableResultRowChangeEventHandler OfflineTableResultRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event OfflineTableResultRowChangeEventHandler OfflineTableResultRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event OfflineTableResultRowChangeEventHandler OfflineTableResultRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event OfflineTableResultRowChangeEventHandler OfflineTableResultRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddOfflineTableResultRow(OfflineTableResultRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OfflineTableResultRow AddOfflineTableResultRow(string BottleNO, string t1st, string t2st, string t3st, string t4st, string t5st, string t6st, string TOCResult) {
+                OfflineTableResultRow rowOfflineTableResultRow = ((OfflineTableResultRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        BottleNO,
+                        t1st,
+                        t2st,
+                        t3st,
+                        t4st,
+                        t5st,
+                        t6st,
+                        TOCResult};
+                rowOfflineTableResultRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowOfflineTableResultRow);
+                return rowOfflineTableResultRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                OfflineTableResultDataTable cln = ((OfflineTableResultDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new OfflineTableResultDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnBottleNO = base.Columns["BottleNO"];
+                this.columnt1st = base.Columns["t1st"];
+                this.columnt2st = base.Columns["t2st"];
+                this.columnt3st = base.Columns["t3st"];
+                this.columnt4st = base.Columns["t4st"];
+                this.columnt5st = base.Columns["t5st"];
+                this.columnt6st = base.Columns["t6st"];
+                this.columnTOCResult = base.Columns["TOCResult"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnBottleNO = new global::System.Data.DataColumn("BottleNO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBottleNO);
+                this.columnt1st = new global::System.Data.DataColumn("t1st", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnt1st);
+                this.columnt2st = new global::System.Data.DataColumn("t2st", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnt2st);
+                this.columnt3st = new global::System.Data.DataColumn("t3st", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnt3st);
+                this.columnt4st = new global::System.Data.DataColumn("t4st", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnt4st);
+                this.columnt5st = new global::System.Data.DataColumn("t5st", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnt5st);
+                this.columnt6st = new global::System.Data.DataColumn("t6st", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnt6st);
+                this.columnTOCResult = new global::System.Data.DataColumn("TOCResult", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTOCResult);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OfflineTableResultRow NewOfflineTableResultRow() {
+                return ((OfflineTableResultRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new OfflineTableResultRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(OfflineTableResultRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.OfflineTableResultRowChanged != null)) {
+                    this.OfflineTableResultRowChanged(this, new OfflineTableResultRowChangeEvent(((OfflineTableResultRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.OfflineTableResultRowChanging != null)) {
+                    this.OfflineTableResultRowChanging(this, new OfflineTableResultRowChangeEvent(((OfflineTableResultRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.OfflineTableResultRowDeleted != null)) {
+                    this.OfflineTableResultRowDeleted(this, new OfflineTableResultRowChangeEvent(((OfflineTableResultRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.OfflineTableResultRowDeleting != null)) {
+                    this.OfflineTableResultRowDeleting(this, new OfflineTableResultRowChangeEvent(((OfflineTableResultRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveOfflineTableResultRow(OfflineTableResultRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                OfflineArgs ds = new OfflineArgs();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "OfflineTableResultDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -943,6 +1337,22 @@ namespace TOCTest {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string rTimes {
+                get {
+                    try {
+                        return ((string)(this[this.tableOfflineArgs.rTimesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'rTimes\' in table \'OfflineArgs\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOfflineArgs.rTimesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsdeviceNameNull() {
                 return this.IsNull(this.tableOfflineArgs.deviceNameColumn);
             }
@@ -1108,6 +1518,257 @@ namespace TOCTest {
             public void SetConAveNull() {
                 this[this.tableOfflineArgs.ConAveColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsrTimesNull() {
+                return this.IsNull(this.tableOfflineArgs.rTimesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetrTimesNull() {
+                this[this.tableOfflineArgs.rTimesColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class OfflineTableResultRow : global::System.Data.DataRow {
+            
+            private OfflineTableResultDataTable tableOfflineTableResult;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal OfflineTableResultRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableOfflineTableResult = ((OfflineTableResultDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string BottleNO {
+                get {
+                    try {
+                        return ((string)(this[this.tableOfflineTableResult.BottleNOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BottleNO\' in table \'OfflineTableResult\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOfflineTableResult.BottleNOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string t1st {
+                get {
+                    try {
+                        return ((string)(this[this.tableOfflineTableResult.t1stColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'t1st\' in table \'OfflineTableResult\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOfflineTableResult.t1stColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string t2st {
+                get {
+                    try {
+                        return ((string)(this[this.tableOfflineTableResult.t2stColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'t2st\' in table \'OfflineTableResult\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOfflineTableResult.t2stColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string t3st {
+                get {
+                    try {
+                        return ((string)(this[this.tableOfflineTableResult.t3stColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'t3st\' in table \'OfflineTableResult\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOfflineTableResult.t3stColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string t4st {
+                get {
+                    try {
+                        return ((string)(this[this.tableOfflineTableResult.t4stColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'t4st\' in table \'OfflineTableResult\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOfflineTableResult.t4stColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string t5st {
+                get {
+                    try {
+                        return ((string)(this[this.tableOfflineTableResult.t5stColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'t5st\' in table \'OfflineTableResult\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOfflineTableResult.t5stColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string t6st {
+                get {
+                    try {
+                        return ((string)(this[this.tableOfflineTableResult.t6stColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'t6st\' in table \'OfflineTableResult\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOfflineTableResult.t6stColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TOCResult {
+                get {
+                    try {
+                        return ((string)(this[this.tableOfflineTableResult.TOCResultColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TOCResult\' in table \'OfflineTableResult\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOfflineTableResult.TOCResultColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBottleNONull() {
+                return this.IsNull(this.tableOfflineTableResult.BottleNOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBottleNONull() {
+                this[this.tableOfflineTableResult.BottleNOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ist1stNull() {
+                return this.IsNull(this.tableOfflineTableResult.t1stColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Sett1stNull() {
+                this[this.tableOfflineTableResult.t1stColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ist2stNull() {
+                return this.IsNull(this.tableOfflineTableResult.t2stColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Sett2stNull() {
+                this[this.tableOfflineTableResult.t2stColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ist3stNull() {
+                return this.IsNull(this.tableOfflineTableResult.t3stColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Sett3stNull() {
+                this[this.tableOfflineTableResult.t3stColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ist4stNull() {
+                return this.IsNull(this.tableOfflineTableResult.t4stColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Sett4stNull() {
+                this[this.tableOfflineTableResult.t4stColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ist5stNull() {
+                return this.IsNull(this.tableOfflineTableResult.t5stColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Sett5stNull() {
+                this[this.tableOfflineTableResult.t5stColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ist6stNull() {
+                return this.IsNull(this.tableOfflineTableResult.t6stColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Sett6stNull() {
+                this[this.tableOfflineTableResult.t6stColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTOCResultNull() {
+                return this.IsNull(this.tableOfflineTableResult.TOCResultColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTOCResultNull() {
+                this[this.tableOfflineTableResult.TOCResultColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1130,6 +1791,40 @@ namespace TOCTest {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public OfflineArgsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class OfflineTableResultRowChangeEvent : global::System.EventArgs {
+            
+            private OfflineTableResultRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OfflineTableResultRowChangeEvent(OfflineTableResultRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OfflineTableResultRow Row {
                 get {
                     return this.eventRow;
                 }

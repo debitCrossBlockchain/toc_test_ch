@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.MyPanel = new System.Windows.Forms.Panel();
             this.ToolStripMenuItemQuit = new System.Windows.Forms.ToolStripMenuItem();
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemCommunication = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +65,7 @@
             this.m_toolbtnDataView = new System.Windows.Forms.ToolStripButton();
             this.m_toolbtnTest = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.MyPanel = new System.Windows.Forms.Panel();
             this.menuStripSystem.SuspendLayout();
             this.panel2.SuspendLayout();
             this.CreateDevice.SuspendLayout();
@@ -75,17 +75,6 @@
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // MyPanel
-            // 
-            this.MyPanel.BackColor = System.Drawing.Color.White;
-            this.MyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MyPanel.Location = new System.Drawing.Point(179, 0);
-            this.MyPanel.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.MyPanel.MaximumSize = new System.Drawing.Size(1326, 713);
-            this.MyPanel.Name = "MyPanel";
-            this.MyPanel.Size = new System.Drawing.Size(1141, 588);
-            this.MyPanel.TabIndex = 27;
             // 
             // ToolStripMenuItemQuit
             // 
@@ -146,7 +135,7 @@
             // ToolStripMenuItemAbout
             // 
             this.ToolStripMenuItemAbout.Name = "ToolStripMenuItemAbout";
-            this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(106, 22);
             this.ToolStripMenuItemAbout.Text = "关于";
             this.ToolStripMenuItemAbout.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
             // 
@@ -168,7 +157,7 @@
             this.RssTreeView.MinimumSize = new System.Drawing.Size(179, 501);
             this.RssTreeView.Name = "RssTreeView";
             this.RssTreeView.SelectedImageIndex = 2;
-            this.RssTreeView.Size = new System.Drawing.Size(179, 588);
+            this.RssTreeView.Size = new System.Drawing.Size(179, 584);
             this.RssTreeView.TabIndex = 26;
             this.RssTreeView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RssTreeView_MouseDown);
             // 
@@ -195,10 +184,10 @@
             this.panel2.Controls.Add(this.MyPanel);
             this.panel2.Controls.Add(this.RssTreeView);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 106);
+            this.panel2.Location = new System.Drawing.Point(0, 88);
             this.panel2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1320, 588);
+            this.panel2.Size = new System.Drawing.Size(1320, 584);
             this.panel2.TabIndex = 32;
             // 
             // toolDelDevice
@@ -321,7 +310,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1320, 694);
+            this.panel1.Size = new System.Drawing.Size(1320, 672);
             this.panel1.TabIndex = 33;
             // 
             // toolStrip1
@@ -340,7 +329,7 @@
             this.toolStripSeparator1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 33);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1320, 73);
+            this.toolStrip1.Size = new System.Drawing.Size(1320, 55);
             this.toolStrip1.TabIndex = 34;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -431,13 +420,24 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 73);
             // 
+            // MyPanel
+            // 
+            this.MyPanel.BackColor = System.Drawing.Color.White;
+            this.MyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MyPanel.Location = new System.Drawing.Point(179, 0);
+            this.MyPanel.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.MyPanel.MaximumSize = new System.Drawing.Size(1326, 713);
+            this.MyPanel.Name = "MyPanel";
+            this.MyPanel.Size = new System.Drawing.Size(1141, 584);
+            this.MyPanel.TabIndex = 1;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 694);
-            this.Controls.Add(this.mStatusStrip);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.mStatusStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximumSize = new System.Drawing.Size(1326, 729);
@@ -466,7 +466,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel MyPanel;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemQuit;
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemCommunication;
@@ -502,6 +501,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem m_toolMenuSystemParam;
         private System.Windows.Forms.ToolStripMenuItem m_toolMenuAlertMrg_Click;
+        private System.Windows.Forms.Panel MyPanel;
 
     }
 }

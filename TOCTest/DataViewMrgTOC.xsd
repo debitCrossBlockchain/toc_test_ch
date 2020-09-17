@@ -12,11 +12,13 @@
   <xs:element name="DataViewMrgTOC" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataViewMrgTOC" msprop:Generator_UserDSName="DataViewMrgTOC">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataViewTOC" msprop:Generator_TableClassName="DataViewTOCDataTable" msprop:Generator_TableVarName="tableDataViewTOC" msprop:Generator_RowChangedName="DataViewTOCRowChanged" msprop:Generator_TablePropName="DataViewTOC" msprop:Generator_RowDeletingName="DataViewTOCRowDeleting" msprop:Generator_RowChangingName="DataViewTOCRowChanging" msprop:Generator_RowEvHandlerName="DataViewTOCRowChangeEventHandler" msprop:Generator_RowDeletedName="DataViewTOCRowDeleted" msprop:Generator_RowClassName="DataViewTOCRow" msprop:Generator_UserTableName="DataViewTOC" msprop:Generator_RowEvArgName="DataViewTOCRowChangeEvent">
+        <xs:element name="DataViewTOC" msprop:Generator_TableClassName="DataViewTOCDataTable" msprop:Generator_TableVarName="tableDataViewTOC" msprop:Generator_TablePropName="DataViewTOC" msprop:Generator_RowDeletingName="DataViewTOCRowDeleting" msprop:Generator_RowChangingName="DataViewTOCRowChanging" msprop:Generator_RowEvHandlerName="DataViewTOCRowChangeEventHandler" msprop:Generator_RowDeletedName="DataViewTOCRowDeleted" msprop:Generator_UserTableName="DataViewTOC" msprop:Generator_RowChangedName="DataViewTOCRowChanged" msprop:Generator_RowEvArgName="DataViewTOCRowChangeEvent" msprop:Generator_RowClassName="DataViewTOCRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TOC" msprop:Generator_ColumnVarNameInTable="columnTOC" msprop:Generator_ColumnPropNameInRow="TOC" msprop:Generator_ColumnPropNameInTable="TOCColumn" msprop:Generator_UserColumnName="TOC" type="xs:int" minOccurs="0" />
               <xs:element name="Time" msprop:Generator_ColumnVarNameInTable="columnTime" msprop:Generator_ColumnPropNameInRow="Time" msprop:Generator_ColumnPropNameInTable="TimeColumn" msprop:Generator_UserColumnName="Time" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Unit" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnPropNameInTable="UnitColumn" msprop:Generator_UserColumnName="Unit" type="xs:string" minOccurs="0" />
+              <xs:element name="TOCView" msprop:Generator_ColumnVarNameInTable="columnTOCView" msprop:Generator_ColumnPropNameInRow="TOCView" msprop:Generator_ColumnPropNameInTable="TOCViewColumn" msprop:Generator_UserColumnName="TOCView" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

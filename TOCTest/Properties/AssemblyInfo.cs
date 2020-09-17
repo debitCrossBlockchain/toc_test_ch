@@ -10,7 +10,7 @@ using log4net;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("TOCTest")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright ©  2020/08/30")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

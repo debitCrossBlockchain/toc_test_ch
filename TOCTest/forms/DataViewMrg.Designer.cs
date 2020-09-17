@@ -91,8 +91,7 @@
             this.m_cbTestMode.Items.AddRange(new object[] {
             "在线测试",
             "离线测试",
-            "系统使用性",
-            "零点校准"});
+            "系统适应性验证"});
             this.m_cbTestMode.Location = new System.Drawing.Point(103, 7);
             this.m_cbTestMode.Margin = new System.Windows.Forms.Padding(2);
             this.m_cbTestMode.Name = "m_cbTestMode";
@@ -211,7 +210,6 @@
             this.m_btnView.Size = new System.Drawing.Size(76, 31);
             this.m_btnView.TabIndex = 49;
             this.m_btnView.Text = "打印";
-            this.m_btnView.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.m_btnView.UseVisualStyleBackColor = true;
             this.m_btnView.Click += new System.EventHandler(this.m_btnView_Click);
             // 
@@ -259,7 +257,6 @@
             // 
             // m_dataGridViewList
             // 
-            this.m_dataGridViewList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.m_dataGridViewList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.m_dataGridViewList.Location = new System.Drawing.Point(0, 99);
             this.m_dataGridViewList.Margin = new System.Windows.Forms.Padding(2);
